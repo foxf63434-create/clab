@@ -11,6 +11,11 @@ EXECUTOR: performs only authorized work.
 QA: independently tests exact candidate/evidence.
 REVIEWER: independently issues PASS/REJECT. AUTHOR != FINAL JUDGE.
 
+## Mandatory Remote Admin bootstrap
+Every new REMOTE-ADMIN must follow `control/REMOTE-ADMIN-BOOTSTRAP-STANDARD.md`.
+Its first operational action is to create and enable its own recurring wakeup when the product supports it. Worker creation comes only after the admin wakeup is established and evidenced.
+A Human Gate is allowed only after a factual attempt proves the required automation cannot be created/enabled without owner action.
+
 ## Mission routing
 For every new mission:
 1. Identify PROJECT_ID and target repository.

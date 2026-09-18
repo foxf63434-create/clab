@@ -25,16 +25,17 @@ NODE_ID: `NODE-HQ-01`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 ACTIVE_PROJECTS: `PROJECT-CLAB-001`; scoped private-core handoff through issue #12 and bounded repair authority `HQ-REPAIR-AUTH-20260918-01`
 CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded HQ developer runtime with private branch/evidence writes and executed tests; distinct existing QA/Reviewer workers with dependency-gated schedules and current-round independent evidence
-QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; #16 R01-C02 developer terminal `READY_FOR_QA`; #13 R01 independent QA terminal `READY_FOR_REVIEW`; private repair-loop/execution-state read-back; scheduler observations under #12/#15
-CURRENT_LOAD: `HQ-WP-001` / #12; WP03 identity repair `R01` now in independent Reviewer on exact candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
-STATUS: `REPAIR_LOOP_ACTIVE / R01_REVIEW_ACTIVE`
+QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; #16 R01-C02 developer terminal `READY_FOR_QA`; #13 R01 independent QA terminal `READY_FOR_REVIEW`; #14 R01 independent Reviewer terminal `REJECT / HIGH`; private repair-loop/execution-state read-back; scheduler observations under #12/#15
+CURRENT_LOAD: `HQ-WP-001` / #12; WP03 identity repair `R02` in bounded DEVELOPMENT with no new R02 candidate yet
+STATUS: `REPAIR_LOOP_ACTIVE / R02_DEVELOPMENT_ACTIVE`
 WRITE_MODE: Registrar is sole ordinary loop/execution/public-HQ-state writer; role evidence remains role-owned in private core
 ASSIGNMENT/CONTROL_ISSUE: #12 parent work package; #16 developer; #13 QA; #14 Reviewer; #15 bounded Control supervision
 AUTOMATION_ID: `6aac1f2261a48191805ee42fa01ec632`
-LAST_CONTACT_EVIDENCE: #13 R01 QA `READY_FOR_REVIEW`; private QA artifact commit `88e4b7bf5f0a883323546ee86a755f750f6c5048` / blob `bf79ef0b2c16842ca35dc5acfb77a8a6127038db`; persisted QA tests commit `b083cd7b8ebd57e9faf4d85642d54da4022a7a1c` / blob `1e4a579ce00b72677f6182490aa0fe01782c7cf8`; Registrar routed exact candidate to independent Reviewer after read-back
-CURRENT_OWNER: `HQ-REVIEWER-01`
-CURRENT_TASK: `HQ-REV-WP03-IDENTITY-R01`
-NEXT_STEP: independent Reviewer produces one exact-candidate current-round terminal `PASS`, `REJECT` or `BLOCKED`; no developer/QA repeat work on unchanged R01 candidate
+LAST_CONTACT_EVIDENCE: #14 R01 Reviewer `REJECT / HIGH` on exact prior candidate after same-candidate QA `READY_FOR_REVIEW`; Registrar verified the private terminal artifact and routed the authorized R02 correction to the SAME developer
+CURRENT_OWNER: `HQ-DEVELOPER-01`
+CURRENT_TASK: `HQ-DEV-WP03-IDENTITY-R02`
+NEXT_STEP: same developer produces one materially new immutable R02 candidate with terminal `READY_FOR_QA` or truthful `BLOCKED`; QA and Reviewer remain dependency-gated and disabled until exact R02 gates are satisfied
+ROUND_BUDGET: rejected candidate rounds `1/3`; same-root rejects `1/2`
 NAMESPACE: all current HQ agents use `HQ-` IDs under `NODE-HQ-01 / TEAM-HQ-001`
 LEGACY_LOCAL_POLICY: old ambiguous NIGHTJET/Njet Club chats are history-only; old execution stays disabled unless explicitly reauthorized
 

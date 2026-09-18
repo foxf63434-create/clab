@@ -68,8 +68,9 @@ REJECTED_ROUNDS: `1/3`.
 SAME_ROOT_REJECT_COUNT: `1/2`.
 CURRENT_BLOCKER: `RETURNED_QA_REJECT_R01`.
 LAST_TRANSITION_AT: `2026-09-18T13:51:05Z`.
+LAST_WORKER_ACTIVATION_AT: `2026-09-18T13:56:38Z`.
 
-HQ-REGISTRAR-01 verified the exact R01 independent QA terminal `REJECT`, preserved the immutable R01 Developer/QA evidence and persisted QA tests, incremented rejected-round counters exactly once, cleared the rejected current-candidate/verdict pointers for the new round, bound the returned QA finding, and returned bounded R02 development to the same HQ-DEVELOPER-01. R02 requires a materially new candidate; unchanged R01 work cannot be reactivated. This does not imply Developer success, QA PASS, Reviewer PASS, Control acceptance, merge or deployment.
+HQ-REGISTRAR-01 verified the exact R01 independent QA terminal `REJECT`, preserved the immutable R01 Developer/QA evidence and persisted QA tests, incremented rejected-round counters exactly once, cleared the rejected current-candidate/verdict pointers for the new round, bound the returned QA finding, and returned bounded R02 development to the same HQ-DEVELOPER-01. The private/public R02 dispatch was remotely read back before the existing Developer worker was enabled. R02 requires a materially new candidate; unchanged R01 work cannot be reactivated. This does not imply Developer success, QA PASS, Reviewer PASS, Control acceptance, merge or deployment.
 
 ### WP04 R02 correction boundary
 The private R01 QA report owns the detailed defect and recheck criteria. Sanitized requirement: structurally malformed or fabricated non-empty provenance must not count as usable evidence or authorize outward authoritative status; it must fail closed while valid evidence compatibility and existing `UNKNOWN`, `CONFLICT`, `STALE_PROJECTION`, `MISSING_REVIEW`, secret-suppression, source-immutability and read-only semantics remain intact.
@@ -93,7 +94,7 @@ SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`
 ASSIGNMENT_STATE: `ACTIVE_WP04_R02_DEVELOPMENT`
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01-WP04.md`
 CURRENT_TASK: `HQ-DEV-WP04-API-R02`; no current R02 candidate exists yet.
-SCHEDULER_STATE: `PENDING_ENABLE_AFTER_REGISTRAR_READ_BACK`.
+SCHEDULER_STATE: enabled only after Registrar remotely read back the R02 assignment/private loop/execution/public projection; activation observed at `2026-09-18T13:56:38Z`.
 NEXT_STEP: produce one materially new immutable R02 candidate with exact evidence or truthful `BLOCKED`; do not repeat unchanged R01 candidate.
 
 ### HQ-QA-01

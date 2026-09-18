@@ -1,7 +1,7 @@
 # TEAM REGISTRY
 
 STATUS: ACTIVE
-LAST_RECONCILED: 2026-09-17
+LAST_RECONCILED: 2026-09-18
 
 No team is considered ONLINE or QUALIFIED without factual evidence.
 
@@ -23,18 +23,19 @@ Fields per team:
 ### TEAM-HQ-001
 NODE_ID: `NODE-HQ-01`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
-ACTIVE_PROJECTS: `PROJECT-CLAB-001`; scoped private-core handoff through issue #12
-CAPABILITIES: manual GitHub read-back and enabled scheduler registration observed; scheduled GitHub execution and worker creation remain unproven
-QUALIFICATION_EVIDENCE: #11 comment 5718377211 (manual bootstrap); direct GLOBAL CONTROL scheduler inspection (enabled hourly task, last_run_time=null at inspection)
-CURRENT_LOAD: `HQ-BOOTSTRAP-001` / #11; actual handoff package `HQ-WP-001` / #12
-STATUS: `WAKE_ENABLED / AUTOMATED_EXECUTION_NOT_YET_PROVEN`
-WRITE_MODE: manual Issue evidence observed; scheduled private read/write capability must be verified before work
-ASSIGNMENT/CONTROL_ISSUE: #11 bootstrap acceptance; #12 real work, not yet acknowledged
+ACTIVE_PROJECTS: `PROJECT-CLAB-001`; scoped private-core handoff through issue #12 and bounded repair authority `HQ-REPAIR-AUTH-20260918-01`
+CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded HQ developer runtime with private branch/evidence writes and executed tests; distinct existing QA/Reviewer workers with dependency-gated schedules
+QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; #16 R01-C02 developer terminal `READY_FOR_QA`; private repair-loop/execution-state read-back; scheduler observations under #12/#15
+CURRENT_LOAD: `HQ-WP-001` / #12; WP03 identity repair `R01` now in independent QA on exact candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
+STATUS: `REPAIR_LOOP_ACTIVE / R01_QA_ACTIVE`
+WRITE_MODE: Registrar is sole ordinary loop/execution/public-HQ-state writer; role evidence remains role-owned in private core
+ASSIGNMENT/CONTROL_ISSUE: #12 parent work package; #16 developer; #13 QA; #14 Reviewer; #15 bounded Control supervision
 AUTOMATION_ID: `6aac1f2261a48191805ee42fa01ec632`
-LAST_CONTACT_EVIDENCE: #11 manual bootstrap and closeout comments; closeout is not accepted as automated runtime proof
-MISSING_FOR_ONLINE: actual scheduled read-back and required worker execution evidence
-NEXT_STEP: reuse existing Registrar schedule, read #11 and #12, dispatch only authorized HQ work; no new administrator
-NAMESPACE: all agents use `HQ-` IDs under `NODE-HQ-01 / TEAM-HQ-001`
+LAST_CONTACT_EVIDENCE: #16 current developer handoff `READY_FOR_QA`; private developer artifact commit `2e8c7d62cdf1bcca4ac85c77a8239624b564cad2` / blob `3f0671355335d349637c7fdf7526308d4c3e59db`; Registrar routed R01 to independent QA after read-back
+CURRENT_OWNER: `HQ-QA-01`
+CURRENT_TASK: `HQ-QA-WP03-IDENTITY-R01`
+NEXT_STEP: independent QA produces one exact-candidate current-round terminal outcome; Reviewer remains disabled until same-candidate `READY_FOR_REVIEW` is verified and REVIEW phase is published
+NAMESPACE: all current HQ agents use `HQ-` IDs under `NODE-HQ-01 / TEAM-HQ-001`
 LEGACY_LOCAL_POLICY: old ambiguous NIGHTJET/Njet Club chats are history-only; old execution stays disabled unless explicitly reauthorized
 
 ### TEAM-REMOTE-001

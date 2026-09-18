@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_REPAIR_R01_REVIEW_ACTIVE
+STATUS: HQ_REPAIR_R02_DEVELOPMENT_ACTIVE
 LAST_CONTROL_AUDIT: 2026-09-18
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
 CONTROL_DECISION: CONTINUE_WITH_BOUNDED_REPAIR
@@ -28,84 +28,75 @@ REVIEWER_ISSUE: #14
 CURRENT_PRIVATE_DISPATCH: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/HQ-REPAIR-LOOP-001.md`
 
 ### Current repair dispatch
-PHASE: `REVIEW`
-ROUND: `R01`
-ATTEMPT_ID: `R01-C02`
-TASK_ID: `HQ-REV-WP03-IDENTITY-R01`
-ACTIVE_OWNER: `HQ-REVIEWER-01`
-RUN_STATUS: `REVIEW_AUTHORIZED`
-CANDIDATE_SHA: `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
-CANDIDATE_TREE: `621a30db4e95b5d7befe516cb78f1d424232deab`
-CANDIDATE_DIFF_BASE: `c30b4f82bd91ed42492a6e06587340ea79fd682c`
-DEVELOPER_RESULT: `READY_FOR_QA` at private `EVIDENCE/HQ-IDENTITY-R01-C02-DEVELOPER.md`.
-DEVELOPER_EVIDENCE_COMMIT: `2e8c7d62cdf1bcca4ac85c77a8239624b564cad2`.
-DEVELOPER_EVIDENCE_BLOB: `3f0671355335d349637c7fdf7526308d4c3e59db`.
-QA_RESULT: `READY_FOR_REVIEW` at private `EVIDENCE/HQ-IDENTITY-R01-QA.md`.
-QA_EVIDENCE_COMMIT: `88e4b7bf5f0a883323546ee86a755f750f6c5048`.
-QA_EVIDENCE_BLOB: `bf79ef0b2c16842ca35dc5acfb77a8a6127038db`.
-QA_TESTS: `EVIDENCE/HQ-IDENTITY-R01-QA-TESTS.py`, commit `b083cd7b8ebd57e9faf4d85642d54da4022a7a1c`, blob `1e4a579ce00b72677f6182490aa0fe01782c7cf8`.
-CURRENT_REVIEWER_OUTPUT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/EVIDENCE/HQ-IDENTITY-R01-REVIEWER.md`.
+PHASE: `DEVELOPMENT`
+ROUND: `R02`
+ATTEMPT_ID: `R02`
+TASK_ID: `HQ-DEV-WP03-IDENTITY-R02`
+ACTIVE_OWNER: `HQ-DEVELOPER-01`
+RUN_STATUS: `DEVELOPMENT_AUTHORIZED`
+CANDIDATE_SHA: `NONE_PENDING_NEW_R02_CANDIDATE`
+CANDIDATE_TREE: `NONE_PENDING_NEW_R02_CANDIDATE`
+CANDIDATE_DIFF_BASE: `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
+RETURNED_R01_RESULT: independent Reviewer `REJECT / HIGH` for exact R01 candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2` after same-candidate QA `READY_FOR_REVIEW`.
+RETURNED_R01_PRIVATE_POINTER: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/EVIDENCE/HQ-IDENTITY-R01-REVIEWER.md`.
+SANITIZED_R02_FIX_SCOPE: close the remaining canonical HQ identity-carrier ambiguity while preserving fail-closed identity/provenance/secret controls and legitimate legacy functional-role compatibility.
+REJECTED_ROUNDS: `1`.
+SAME_ROOT_REJECT_COUNT: `1`.
+MAX_CANDIDATE_ROUNDS: `3`.
 CURRENT_BLOCKER: `NONE`.
 REPAIR_BRANCH: `repair/hq-wp03-identity-001`.
 REPAIR_BRANCH_BASE: `c30b4f82bd91ed42492a6e06587340ea79fd682c`.
 OLD_REJECTED_CANDIDATE: `e823a05a799bc9a02cfe246c463b9f61fd9e4264` remains historical evidence only and is not an active target.
-LAST_TRANSITION_AT: `2026-09-18T04:30:13Z`.
+LAST_TRANSITION_AT: `2026-09-18T06:28:58Z`.
 
-Registrar directly verified the current R01 QA terminal artifact as `READY_FOR_REVIEW` for the exact pinned candidate/tree, verified the persisted independent QA tests and their immutable identities, confirmed no current-round Reviewer terminal artifact existed, stopped repeat QA work, published/read back `REVIEW` ownership and activated the existing independent Reviewer. QA reported 46/46 executed tests green on verified candidate bytes; live network-backed `GitHubApiSource` integration remained explicitly `NOT_TESTED`, not silently passed. QA success is not Reviewer PASS or package acceptance.
+Registrar directly verified the R01 current-round Reviewer terminal `REJECT`, confirmed no R02 developer terminal evidence or checkpoint existed, preserved the complete R01 chain, incremented the rejected-candidate round once, and routed the already-authorized bounded correction to the SAME `HQ-DEVELOPER-01` as R02. No R02 candidate, QA verdict, Reviewer verdict or package acceptance is claimed yet.
 
 The owner-approved authority `HQ-REPAIR-AUTH-20260918-01` resolves the former one-developer/team-capacity HOLD for this repair only. It authorizes exactly one HQ developer and the bounded Developer -> QA -> independent Reviewer -> correction loop. No second developer, WP04+, production, merge-to-main, permission change, legacy reactivation or remote-team activation is authorized.
 
 ### HQ-REGISTRAR-01
 SCHEDULER_TASK_ID: `6aac1f2261a48191805ee42fa01ec632`
-OBSERVATION: existing Registrar remains the sole routine writer of repair-loop/execution state and HQ public projection.
+OBSERVATION: existing Registrar remains the sole routine writer of repair-loop/execution state, worker lifecycle and HQ public projection.
 AUTHORITY: coordinate only the approved repair loop; do not implement, perform QA or write Reviewer verdicts.
 
 ### HQ-DEVELOPER-01
 WORKER_ISSUE: #16
 SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`
-ASSIGNMENT_STATE: `TERMINAL READY_FOR_QA / STOPPED FOR CURRENT CANDIDATE`.
+ASSIGNMENT_STATE: `ACTIVE / R02 DEVELOPMENT`.
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01.md`.
-PRIOR_R01_OUTPUT: `.../EVIDENCE/HQ-IDENTITY-R01-DEVELOPER.md` = `BLOCKED` and preserved.
-CURRENT_ATTEMPT_OUTPUT: `.../EVIDENCE/HQ-IDENTITY-R01-C02-DEVELOPER.md` = `READY_FOR_QA` for candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`.
-OBSERVATION: repeat developer schedule is disabled after the terminal handoff.
-NEXT_STEP: no further developer execution unless independent Reviewer returns an authorized new repair round.
+CURRENT_REQUIRED_OUTPUT: `.../EVIDENCE/HQ-IDENTITY-R02-DEVELOPER.md`.
+CURRENT_CHECKPOINT: `.../CHECKPOINTS/HQ-IDENTITY-R02-DEVELOPER.md`.
+PRIOR_R01_RESULT: terminal Reviewer `REJECT`; R01 developer/QA/Reviewer artifacts remain immutable.
+NEXT_STEP: produce one materially new R02 candidate and terminal `READY_FOR_QA` or truthful `BLOCKED`, then stop repeat work.
 
 ### HQ-QA-01
 WORKER_ISSUE: #13
 SCHEDULER_TASK_ID: `6aac3099fc9881919e9de980b9fd86a7`
-ASSIGNMENT_STATE: `TERMINAL_READY_FOR_REVIEW / R01`.
+ASSIGNMENT_STATE: `WAITING_FOR_DEVELOPER_R02`.
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-QA-IDENTITY-001.md`.
-PINNED_CANDIDATE: `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2` / tree `621a30db4e95b5d7befe516cb78f1d424232deab`.
-TERMINAL_OUTPUT: `.../EVIDENCE/HQ-IDENTITY-R01-QA.md` = `READY_FOR_REVIEW`.
-PERSISTED_INDEPENDENT_TESTS: `.../EVIDENCE/HQ-IDENTITY-R01-QA-TESTS.py`.
-OBSERVATION: repeat QA schedule is disabled after terminal same-candidate handoff.
-NEXT_STEP: none for unchanged R01 candidate; Reviewer owns the current gate.
+R01_HISTORY: terminal `READY_FOR_REVIEW` on the rejected R01 candidate; preserved, not reusable for R02.
+NEXT_STEP: remain disabled until Registrar directly pins a materially new R02 candidate and R02 developer evidence, activates the R02 QA assignment and reads it back.
 
 ### HQ-REVIEWER-01
 WORKER_ISSUE: #14
 SCHEDULER_TASK_ID: `6aac30a8f27c819198aea8a734aeaf5a`
-OBSERVATION: existing Reviewer task is enabled only after private `REVIEW` phase/assignment read-back and exact QA artifact/test pinning.
-ASSIGNMENT_STATE: `ACTIVE / R01`.
+ASSIGNMENT_STATE: `WAITING_FOR_QA_R02`.
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-REVIEWER-IDENTITY-001.md`.
-PINNED_CANDIDATE: `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2` / tree `621a30db4e95b5d7befe516cb78f1d424232deab`.
-PINNED_QA_EVIDENCE: commit `88e4b7bf5f0a883323546ee86a755f750f6c5048` / blob `bf79ef0b2c16842ca35dc5acfb77a8a6127038db`.
-PINNED_QA_TESTS: commit `b083cd7b8ebd57e9faf4d85642d54da4022a7a1c` / blob `1e4a579ce00b72677f6182490aa0fe01782c7cf8`.
-REQUIRED_OUTPUT: `.../EVIDENCE/HQ-IDENTITY-R01-REVIEWER.md`.
-NEXT_STEP: independently review the exact QA-backed candidate and publish one terminal `PASS`, `REJECT` or `BLOCKED`; schedule enablement itself is not review proof.
+R01_HISTORY: terminal `REJECT / HIGH`; private artifact pointer `.../EVIDENCE/HQ-IDENTITY-R01-REVIEWER.md`.
+NEXT_STEP: remain disabled until independent R02 QA produces same-candidate `READY_FOR_REVIEW` and Registrar pins/read-backs the exact R02 QA artifact/test identities in the R02 Reviewer assignment.
 
 ### HQ-CONTROL-01
 CONTROL_ISSUE: #15 / `HQ-CONTROL-001`.
 ROLE: bounded supervision and final acceptance only; not an executor and not a competing routine state writer.
-CURRENT_AUTHORITY: supervise the owner-approved repair loop and verify final scoped readiness. Registrar does not wait for a separate Control ACK for routine in-scope Developer -> QA -> Reviewer transitions already authorized by #12/#16.
-LATEST_MATERIAL_DIAGNOSIS: #15 comment 5724086673 identified the prior R01 write-path collision and authorized the R01-C02 coordination continuation that produced the new QA-backed review candidate.
+CURRENT_AUTHORITY: supervise the owner-approved repair loop and verify final scoped readiness. Registrar does not wait for a separate Control ACK for routine in-scope transitions already authorized by #12/#16.
+LATEST_MATERIAL_DECISION: #15 comment `5726059349` verified the R01-C02 Reviewer REJECT and routed one bounded materially changed R02 repair round to the SAME developer without owner relay.
 
 ## Repair-loop lifecycle
-Current candidate round remains `R01` of maximum three materially new candidate rounds. `R01-C02` was a coordination continuation and did not increment rejected-round counters. Registrar checks current-attempt/current-round terminal evidence before any worker activation. Developer -> QA and QA -> Reviewer transitions have now occurred for R01. On Reviewer `PASS`, Registrar stops repeat workers and moves only this bounded repair to `READY_FOR_CONTROL_REVIEW`. An in-scope Reviewer `REJECT` returns one new candidate round to the same developer, preserving immutable prior evidence. Stop automatic correction after three candidate rounds or two rejected rounds with the same root cause, or immediately on a new scope/security/architecture conflict. `BLOCKED` is never acceptance and does not justify blind rerun.
+Current candidate round is `R02` of maximum three materially new candidate rounds. One current-loop candidate round has been rejected. Registrar checks current-round terminal evidence before any worker activation. `DEVELOPMENT -> QA -> REVIEW` handoffs occur only after exact artifact/candidate read-back. An in-scope QA/Reviewer `REJECT` can return one materially new candidate round to the same developer while budgets permit. Stop automatic correction after three candidate rounds or two rejected rounds with the same root cause, or immediately on a new scope/security/architecture conflict. `BLOCKED` is never acceptance and does not justify blind rerun.
 
 Reviewer PASS on a new pinned QA-backed candidate moves only this bounded repair toward `READY_FOR_CONTROL_REVIEW`; GLOBAL CONTROL performs final package acceptance. No automatic merge, production, WP04 or full-system `MISSION_COMPLETE` follows.
 
 ## Historical WP03 evidence boundary
-The old candidate `e823a05a799bc9a02cfe246c463b9f61fd9e4264` has historical independent HQ QA `READY_FOR_REVIEW` followed by independent Reviewer `REJECT / REV-WP03-HQ-ID-001 / HIGH`. Both reports remain valid evidence for their tested candidate. The positive old QA does not override the Reviewer REJECT and does not authorize rerunning that candidate. Current work is on the materially new candidate pinned above.
+The old candidate `e823a05a799bc9a02cfe246c463b9f61fd9e4264` remains historical independent QA/Reviewer evidence and is not an active target. R01 candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2` has terminal same-candidate QA `READY_FOR_REVIEW` followed by independent Reviewer `REJECT / HIGH`; both remain immutable evidence. Positive QA never overrides a same-candidate Reviewer REJECT.
 
 ## Legacy local policy
 Preserve old chats/history; old NIGHTJET execution schedules remain disabled and receive no new work. No reactivation/repurposing without explicit current owner/control authority. Verify no overlapping active writer before shared-state transfer. Other accounts and unrelated automations are untouched.
@@ -142,11 +133,11 @@ Every participant/task has NODE_ID + TEAM_ID + AGENT_ID + PROJECT_ID + MISSION_I
 The current repair uses one Registrar, exactly one authorized developer, the existing independent QA and Reviewer, plus #15 Control supervision. Do not create idle staff, duplicate workers, repeat terminal work or expand scope to keep schedules busy.
 
 ## Security and integration boundaries
-CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, customer data and secrets stay private. Use sanitized identifiers/pointers. External Contents writes previously returned 403; issue-backed exchange is valid when actually available. Public visibility is not file-write permission.
+CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, customer data and secrets stay private. Use sanitized identifiers/pointers. Public visibility is not file-write permission.
 
 Verify capabilities separately in each scheduled context. A tool available during interactive provisioning may not exist during a scheduled run. Failed writes must be reported in task output when GitHub reporting itself is unavailable.
 
 ## Progress and recovery
 Use existing accepted work/checkpoints. No reboot merely because execution is pending. Read actual elapsed cadence and evidence before inferring a failure. Missing evidence is UNKNOWN/PENDING until the relevant observation justifies more. Hourly checks are periodic, not continuous.
 
-This is a reconciled snapshot for the owner-authorized R01 independent Reviewer transition. Later actual evidence must be read before changing state. No full-system PASS or MISSION_COMPLETE is declared.
+This is the reconciled public HQ snapshot for the owner-authorized R02 development transition. Later actual evidence must be read before changing state. No full-system PASS or MISSION_COMPLETE is declared.

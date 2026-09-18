@@ -24,17 +24,17 @@ Fields per team:
 NODE_ID: `NODE-HQ-01`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 ACTIVE_PROJECTS: `PROJECT-CLAB-001`; scoped private-core handoff through issue #12 and bounded repair authority `HQ-REPAIR-AUTH-20260918-01`
-CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded HQ developer runtime with private branch/evidence writes and executed tests; distinct existing QA/Reviewer workers with dependency-gated schedules
-QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; #16 R01-C02 developer terminal `READY_FOR_QA`; private repair-loop/execution-state read-back; scheduler observations under #12/#15
-CURRENT_LOAD: `HQ-WP-001` / #12; WP03 identity repair `R01` now in independent QA on exact candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
-STATUS: `REPAIR_LOOP_ACTIVE / R01_QA_ACTIVE`
+CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded HQ developer runtime with private branch/evidence writes and executed tests; distinct existing QA/Reviewer workers with dependency-gated schedules and current-round independent evidence
+QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; #16 R01-C02 developer terminal `READY_FOR_QA`; #13 R01 independent QA terminal `READY_FOR_REVIEW`; private repair-loop/execution-state read-back; scheduler observations under #12/#15
+CURRENT_LOAD: `HQ-WP-001` / #12; WP03 identity repair `R01` now in independent Reviewer on exact candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
+STATUS: `REPAIR_LOOP_ACTIVE / R01_REVIEW_ACTIVE`
 WRITE_MODE: Registrar is sole ordinary loop/execution/public-HQ-state writer; role evidence remains role-owned in private core
 ASSIGNMENT/CONTROL_ISSUE: #12 parent work package; #16 developer; #13 QA; #14 Reviewer; #15 bounded Control supervision
 AUTOMATION_ID: `6aac1f2261a48191805ee42fa01ec632`
-LAST_CONTACT_EVIDENCE: #16 current developer handoff `READY_FOR_QA`; private developer artifact commit `2e8c7d62cdf1bcca4ac85c77a8239624b564cad2` / blob `3f0671355335d349637c7fdf7526308d4c3e59db`; Registrar routed R01 to independent QA after read-back
-CURRENT_OWNER: `HQ-QA-01`
-CURRENT_TASK: `HQ-QA-WP03-IDENTITY-R01`
-NEXT_STEP: independent QA produces one exact-candidate current-round terminal outcome; Reviewer remains disabled until same-candidate `READY_FOR_REVIEW` is verified and REVIEW phase is published
+LAST_CONTACT_EVIDENCE: #13 R01 QA `READY_FOR_REVIEW`; private QA artifact commit `88e4b7bf5f0a883323546ee86a755f750f6c5048` / blob `bf79ef0b2c16842ca35dc5acfb77a8a6127038db`; persisted QA tests commit `b083cd7b8ebd57e9faf4d85642d54da4022a7a1c` / blob `1e4a579ce00b72677f6182490aa0fe01782c7cf8`; Registrar routed exact candidate to independent Reviewer after read-back
+CURRENT_OWNER: `HQ-REVIEWER-01`
+CURRENT_TASK: `HQ-REV-WP03-IDENTITY-R01`
+NEXT_STEP: independent Reviewer produces one exact-candidate current-round terminal `PASS`, `REJECT` or `BLOCKED`; no developer/QA repeat work on unchanged R01 candidate
 NAMESPACE: all current HQ agents use `HQ-` IDs under `NODE-HQ-01 / TEAM-HQ-001`
 LEGACY_LOCAL_POLICY: old ambiguous NIGHTJET/Njet Club chats are history-only; old execution stays disabled unless explicitly reauthorized
 

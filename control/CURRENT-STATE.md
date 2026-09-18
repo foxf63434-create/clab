@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_R01_DEVELOPMENT_ACTIVE
+STATUS: HQ_WP04_R01_QA_ACTIVE
 LAST_CONTROL_AUDIT: 2026-09-18
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
 CURRENT_AUTHORITY: `OWNER_2026-09-18_CONTINUE_TO_WP04`
@@ -31,26 +31,33 @@ The earlier rejected `e823a05a799bc9a02cfe246c463b9f61fd9e4264` and R01 Reviewer
 KNOWN_CARRIED_LIMITATION: network-backed `GitHubApiSource` integration remained explicitly `NOT_TESTED` in WP03 independent QA and must not be represented as PASS without new evidence.
 
 ### Current WP04 dispatch
-PHASE: `DEVELOPMENT`
+PHASE: `QA`
 ROUND: `R01`
 ATTEMPT_ID: `R01`
-TASK_ID: `HQ-DEV-WP04-API-R01`
-ACTIVE_OWNER: `HQ-DEVELOPER-01`
-RUN_STATUS: `DEVELOPMENT_ACTIVE`
+TASK_ID: `HQ-QA-WP04-API-R01`
+ACTIVE_OWNER: `HQ-QA-01`
+RUN_STATUS: `QA_ACTIVE`
 INPUT_CANDIDATE: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
 INPUT_TREE: `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`
 BUILD_BRANCH: `build/wp04-status-evidence-api-001`
-CURRENT_CANDIDATE: `NOT_YET_PUBLISHED`
-DEVELOPER_EVIDENCE: `EVIDENCE/HQ-WP04-R01-DEVELOPER.md` — not yet published at reconciliation.
-DEVELOPER_CHECKPOINT: `CHECKPOINTS/HQ-WP04-R01-DEVELOPER.md` — not present at reconciliation.
-QA_EVIDENCE: `NOT_STARTED`.
+CURRENT_CANDIDATE: `50159a0c732e9dc212dbc8e4de18fc4bdefa7cfa`
+CURRENT_CANDIDATE_TREE: `880ddda97bc46c77295e14e326b40e52eb5ed49c`
+CANDIDATE_DIFF_BASE: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
+CANDIDATE_DIFF_STATUS: ahead-only, `behind_by=0`, exactly two authorized changed paths.
+CURRENT_CHANGED_BLOBS: `meta-orchestrator/control-plane-v0/status_api.py`=`20462266e449115c06285f741187d02381c19d07`; `meta-orchestrator/control-plane-v0/tests/test_status_api.py`=`a212f7be1b5b333f63e60767dde0f2e30967e3e0`.
+DEVELOPER_OUTCOME: `READY_FOR_QA`.
+DEVELOPER_EVIDENCE: private `EVIDENCE/HQ-WP04-R01-DEVELOPER.md`, commit `bc20bf15ce02995240898cef88862b0c98432137`, blob `d6447a6eaebbfcad687dfa931c71dfae2a932b92`.
+DEVELOPER_CHECKPOINT: not present before routing.
+QA_EVIDENCE: private `EVIDENCE/HQ-WP04-R01-QA.md` — `PENDING`.
+QA_TESTS: private `EVIDENCE/HQ-WP04-R01-QA-TESTS.py` — `PENDING`.
+QA_CHECKPOINT: none existed before QA activation.
 REVIEWER_EVIDENCE: `NOT_STARTED`.
 REJECTED_ROUNDS: `0/3`.
 SAME_ROOT_REJECT_COUNT: `0/2`.
 CURRENT_BLOCKER: `NONE_PROVEN`.
-LAST_TRANSITION_AT: `2026-09-18T11:53:10Z`.
+LAST_TRANSITION_AT: `2026-09-18T12:59:28Z`.
 
-HQ-REGISTRAR-01 reconciled the private execution state and this public HQ projection from the frozen WP03 acceptance to the owner-authorized WP04 R01 DEVELOPMENT phase. This does not reopen WP03 and does not imply WP04 PASS, READY, merge or deployment.
+HQ-REGISTRAR-01 verified the Developer terminal `READY_FOR_QA` against the immutable candidate/tree, exact accepted-WP03-base compare, exact two changed blobs and immutable Developer evidence; confirmed there was no pre-existing R01 QA terminal result/tests/checkpoint; moved dispatch to QA, remotely read it back, then enabled the existing HQ-QA-01 worker. This does not imply QA PASS, Reviewer PASS, Control acceptance, merge or deployment.
 
 ### WP04 contract
 Goal: minimal read-only Status / Evidence API over accepted WP01-WP03 derived state, exposing projects, agents, tasks, reviews, Human Gates, incidents/evidence and freshness/conflict flags.
@@ -66,17 +73,19 @@ AUTHORITY: sole routine WP04 loop/execution/public-HQ-state and worker-lifecycle
 
 ### HQ-DEVELOPER-01
 SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`
-ASSIGNMENT_STATE: `ACTIVE_WP04_R01_DEVELOPMENT`
+ASSIGNMENT_STATE: `TERMINAL_READY_FOR_QA_WP04_R01`
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01-WP04.md`
-CURRENT_TASK: `HQ-DEV-WP04-API-R01`
-SCHEDULER_STATE: enabled for the authorized WP04 R01 development task.
-NEXT_STEP: publish one materially new immutable candidate plus role-owned Developer evidence with `READY_FOR_QA`, or truthful `BLOCKED`, then stop.
+CURRENT_TASK: terminal `HQ-DEV-WP04-API-R01` on candidate `50159a0c732e9dc212dbc8e4de18fc4bdefa7cfa`.
+SCHEDULER_STATE: disabled after terminal handoff; unchanged candidate must not be re-executed.
+NEXT_STEP: none unless a bounded QA/Reviewer REJECT creates a materially new authorized round.
 
 ### HQ-QA-01
 SCHEDULER_TASK_ID: `6aac3099fc9881919e9de980b9fd86a7`
-ASSIGNMENT_STATE: `ARMED_CONDITIONAL_WP04`
+ASSIGNMENT_STATE: `ACTIVE_WP04_R01_QA`
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-QA-WP04.md`
-SCHEDULER_STATE: disabled until Registrar pins a new immutable WP04 candidate and moves dispatch to QA.
+CURRENT_TASK: `HQ-QA-WP04-API-R01` on exact candidate `50159a0c732e9dc212dbc8e4de18fc4bdefa7cfa`.
+SCHEDULER_STATE: enabled only after Registrar read back the QA dispatch and verified no current-round terminal QA evidence/checkpoint existed.
+NEXT_STEP: independently test exact candidate/dependencies and publish one terminal `READY_FOR_REVIEW`, `REJECT` or `BLOCKED`, then stop.
 
 ### HQ-REVIEWER-01
 SCHEDULER_TASK_ID: `6aac30a8f27c819198aea8a734aeaf5a`
@@ -89,7 +98,7 @@ STATUS: disabled / unassigned for WP04 core/API. It must not duplicate WP04 work
 
 ### HQ-CONTROL-01
 ROLE: bounded supervisor and final scoped WP04 judge only; Registrar owns routine lifecycle/state transitions.
-CURRENT_STATE: WP04 is in DEVELOPMENT and has no Control PASS.
+CURRENT_STATE: WP04 R01 is in independent QA and has no Reviewer or Control PASS.
 
 ## WP04 lifecycle
 Developer `READY_FOR_QA` -> Registrar pins exact candidate/tree/diff/evidence, disables Developer, moves to QA, reads back, then enables existing QA.
@@ -134,4 +143,4 @@ CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, cu
 Verify capabilities separately in each scheduled context. Missing evidence is `UNKNOWN/PENDING`, not PASS.
 
 ## Completion boundary
-WP04 is currently DEVELOPMENT R01 only. Completion requires a materially new immutable candidate, Developer evidence, exact-candidate independent QA, independent Reviewer PASS and final Control acceptance. No full-system `MISSION_COMPLETE` is declared.
+WP04 R01 has a pinned Developer candidate and is now in independent QA. Independent same-candidate QA, independent Reviewer PASS and final Control acceptance are still required. No full-system `MISSION_COMPLETE` is declared.

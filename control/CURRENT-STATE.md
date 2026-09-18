@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_R04_DEVELOPMENT
+STATUS: HQ_WP04_R04_QA
 LAST_CONTROL_AUDIT: 2026-09-18
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
 CURRENT_AUTHORITIES: `OWNER_2026-09-18_CONTINUE_TO_WP04`; `HQ-CONTROL-WP04-RECOVERY-20260918-01`; `OWNER_2026-09-18_ARCHITECTURE_STRENGTHENING`
@@ -20,7 +20,7 @@ ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 PROJECT_ID: `PROJECT-CLAB-001`
 MISSION_ID: `HQ-BOOTSTRAP-001`
 BOOTSTRAP_ISSUE: #11 remains a separate bootstrap-acceptance lifecycle.
-ACTIVE_WORK_PACKAGE: #18 / `BUILD-WP04` — one narrowly authorized R04 recovery round is now in DEVELOPMENT.
+ACTIVE_WORK_PACKAGE: #18 / `BUILD-WP04` — the single narrowly authorized R04 recovery candidate is now routed to independent QA.
 CURRENT_PRIVATE_DISPATCH: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/HQ-WP04-LOOP-001.md`
 RECOVERY_AUTHORITY: `HQ-CONTROL-WP04-RECOVERY-20260918-01`.
 RECOVERY_PUBLIC_REF: #18 comment `5735952527`.
@@ -78,34 +78,42 @@ MAX_CANDIDATE_ROUNDS: `4`.
 REJECTED_ROUNDS_BEFORE_R04_RESULT: `3`.
 SAME_ROOT_REJECT_COUNT: `1`.
 
+### R04 Developer terminal handoff — pinned
+R04_DEVELOPER_OUTCOME: `READY_FOR_QA`.
+R04_CANDIDATE: `5d92dd1455a1090546a6295adf394f96b0fb2881`.
+R04_TREE: `397b6b920e915c7d1cff82d73996a3de51f359d4`.
+R04_DIFF_STATUS: rejected R03→R04 `ahead_by=2 / behind_by=0`, exact R03 merge base; exactly the two allowed WP04 paths changed.
+R04_CHANGED_BLOBS: `status_api.py@e2da90143373e738bdd21b26e281bc632d32ca14`; `tests/test_status_api.py@008f4f022b47188a3679e72b4b3a011c72924f1b`.
+R04_DEVELOPER_EVIDENCE: private `EVIDENCE/HQ-WP04-R04-DEVELOPER.md`, commit `930d939751633f3249b92064f7decb0eb362438a`, blob `f65b44019420d0f546b8eb3327b4885a5bd1db5e`.
+R04_DEVELOPER_REPORTED_TESTS: candidate `25/25 PASS`; unchanged R01 `10/10 PASS`; R02 `15/15 PASS`; R03 `16/16 PASS`; affected upstream `15/15 PASS`; compile PASS; total reported `81/81 PASS`. These are Developer-side results only and are not independent acceptance.
+R04_NETWORK_GITHUB_API_SOURCE: `NOT_TESTED`.
+
 ### Current WP04 dispatch
-PHASE: `DEVELOPMENT`.
+PHASE: `QA`.
 ROUND: `R04`.
-TASK_ID: `HQ-DEV-WP04-API-R04`.
-ACTIVE_OWNER: `HQ-DEVELOPER-01`.
-RUN_STATUS: `ASSIGNED_PENDING_EXECUTOR_OUTPUT`.
+TASK_ID: `HQ-QA-WP04-API-R04`.
+ACTIVE_OWNER: `HQ-QA-01`.
+RUN_STATUS: `QA_ASSIGNED_PENDING_INDEPENDENT_OUTPUT`.
 BUILD_BRANCH: `build/wp04-status-evidence-api-001`.
-R04_INPUT_CANDIDATE: `2c10e1772c87f3791850f4f7db17551d881db90c`.
-R04_INPUT_TREE: `4c88623c238902471a4976159367fa815bb3653c`.
-PRE_DISPATCH_BRANCH_CHECK: `identical to rejected R03 / ahead_by=0 / behind_by=0`.
-CURRENT_CANDIDATE: `PENDING_MATERIALLY_NEW_R04`.
-CURRENT_CANDIDATE_TREE: `PENDING`.
+CURRENT_CANDIDATE: `5d92dd1455a1090546a6295adf394f96b0fb2881`.
+CURRENT_CANDIDATE_TREE: `397b6b920e915c7d1cff82d73996a3de51f359d4`.
 IMPLEMENTATION_ALLOW_LIST: only `meta-orchestrator/control-plane-v0/status_api.py` and `meta-orchestrator/control-plane-v0/tests/test_status_api.py`.
-DEVELOPER_EVIDENCE: private `EVIDENCE/HQ-WP04-R04-DEVELOPER.md` / not yet published.
-QA: dependency-gated for `HQ-QA-WP04-API-R04` until Registrar pins exact Developer `READY_FOR_QA` candidate/evidence.
+DEVELOPER: terminal/stopped after exact `READY_FOR_QA`.
+QA_EVIDENCE: private `EVIDENCE/HQ-WP04-R04-QA.md` / not yet published.
+QA_TESTS: private `EVIDENCE/HQ-WP04-R04-QA-TESTS.py` / not yet published.
 REVIEWER: dependency-gated for `HQ-REVIEWER-WP04-API-R04` until exact same-candidate independent QA `READY_FOR_REVIEW`.
 CURRENT_BLOCKER: `NONE`.
-LAST_TRANSITION_AT: `2026-09-18T21:47:00Z`.
+LAST_TRANSITION_AT: `2026-09-18T23:47:50Z`.
 
-### R04 contract and stop boundary
-R04 must repair same-ID HumanGate conflict handling plus only proven same-class defects inside the exact two-file allow-list. Developer and later independent QA must map the canonical C01-C12 recovery matrix to actual executed tests/results or explicit justified N/A/NOT_TESTED, use complete candidate/dependency bytes, preserve unchanged R01-R03 independent tests, candidate tests and affected upstream regressions, and record actual commands/output/exit codes. Helper/stub substitution is not integration proof. Network `GitHubApiSource` remains `NOT_TESTED` unless actually exercised.
+### R04 QA contract and stop boundary
+Independent QA must test the exact pinned candidate using complete candidate/dependency bytes, map the canonical C01-C12 recovery matrix to actual executed tests/results or justified N/A/NOT_TESTED, run unchanged R01-R03 independent tests, candidate tests and affected upstream regressions, and record actual commands/output/exit codes plus positive controls. Helper/stub substitution is not integration proof. Network `GitHubApiSource` remains `NOT_TESTED` unless actually exercised.
 
 Any R04 QA/Reviewer `REJECT` ends this extension and is accounted once. No R05, renamed recovery package or automatic budget renewal is authorized. Reviewer PASS is only `READY_FOR_CONTROL_REVIEW`; final WP04 acceptance belongs to HQ-CONTROL-01.
 
 ### Architecture-strengthening gate
 #20 `ARCHITECTURE FREEZE v1` remains under separate canonical Freeze Control.
 #21 `EVIDENCE-REF-01`, #22 `GITHUB-SOURCE-01`, and #23 `BUILD-WP05` remain provisioned but inactive because final exact WP04 Control acceptance does not yet exist.
-The canonical post-WP04 plan remains gated and is not actionable during R04 DEVELOPMENT. This Registrar does not write Freeze state or declare Freeze PASS.
+The canonical post-WP04 plan remains gated and is not actionable during R04 QA. This Registrar does not write Freeze state or declare Freeze PASS.
 
 ### HQ-REGISTRAR-01
 SCHEDULER_TASK_ID: `6aac1f2261a48191805ee42fa01ec632`.
@@ -114,15 +122,15 @@ AUTHORITY: sole routine WP04 loop/execution/assignment/public-HQ-state and worke
 
 ### HQ-DEVELOPER-01
 SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`.
-ASSIGNMENT_STATE: `ASSIGNED_R04_DEVELOPMENT`.
+ASSIGNMENT_STATE: `TERMINAL_READY_FOR_QA / STOPPED`.
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01-WP04.md`.
-NEXT_STEP: execute only R04 under exact recovery decision and two-file allow-list; publish role-owned terminal evidence or checkpoint.
+NEXT_STEP: none on unchanged R04 candidate.
 
 ### HQ-QA-01
 SCHEDULER_TASK_ID: `6aac3099fc9881919e9de980b9fd86a7`.
-ASSIGNMENT_STATE: `DEPENDENCY_GATED_R04_WAIT_FOR_READY_FOR_QA`.
+ASSIGNMENT_STATE: `ACTIVE_R04_QA_ASSIGNED`.
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-QA-WP04.md`.
-NEXT_STEP: none until Registrar routes one materially new exact R04 candidate after Developer `READY_FOR_QA`.
+NEXT_STEP: independently test only exact candidate `5d92dd1455a1090546a6295adf394f96b0fb2881` and publish role-owned R04 QA evidence/tests with `READY_FOR_REVIEW`, `REJECT` or `BLOCKED`.
 
 ### HQ-REVIEWER-01
 SCHEDULER_TASK_ID: `6aac30a8f27c819198aea8a734aeaf5a`.
@@ -135,10 +143,9 @@ STATUS: unchanged and not assigned to WP04 core/API. #23 remains gated by final 
 
 ### HQ-CONTROL-01
 ROLE: bounded supervisor and final scoped WP04 judge only; Registrar owns routine lifecycle/state transitions.
-CURRENT_STATE: recovery authority issued; final acceptance remains impossible until one exact R04 candidate receives independent QA `READY_FOR_REVIEW`, Reviewer PASS and complete scoped evidence.
+CURRENT_STATE: recovery authority issued; final acceptance remains impossible until exact R04 candidate receives independent QA `READY_FOR_REVIEW`, Reviewer PASS and complete scoped evidence.
 
 ## WP04 lifecycle
-Developer R04 `READY_FOR_QA` -> Registrar verifies exact materially new candidate/tree/diff/evidence, stops Developer, pins candidate, moves to QA, reads back, then enables existing QA.
 Independent exact same-candidate QA `READY_FOR_REVIEW` -> Registrar stops QA, pins report/tests, moves to REVIEW, reads back, then enables existing Reviewer.
 R04 QA/Reviewer `REJECT` -> stop extension; preserve evidence and account R04 once; no R05.
 Reviewer `PASS` -> workers stop and Registrar routes `READY_FOR_CONTROL_REVIEW`; this is not automatic Control acceptance.
@@ -181,4 +188,4 @@ CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, cu
 Verify capabilities separately in each scheduled context. Missing evidence is `UNKNOWN/PENDING`, not PASS.
 
 ## Completion boundary
-WP04 is not PASS, merged, deployed or complete. R01-R03 remain terminal independent-QA REJECT evidence and the original 3/3 stop remains preserved. R04 is only an authorized recovery attempt and has no candidate or verdict yet. Network-backed `GitHubApiSource` remains `NOT_TESTED`. No post-WP04 fan-out, WP06, production, legacy/remote activation, Architecture Freeze PASS or full-system `MISSION_COMPLETE` is declared.
+WP04 is not PASS, merged, deployed or complete. R01-R03 remain terminal independent-QA REJECT evidence and the original 3/3 stop remains preserved. R04 now has one exact Developer `READY_FOR_QA` candidate pinned and routed to independent QA; no QA verdict, Reviewer PASS or Control acceptance exists yet. Network-backed `GitHubApiSource` remains `NOT_TESTED`. No post-WP04 fan-out, WP06, production, legacy/remote activation, Architecture Freeze PASS or full-system `MISSION_COMPLETE` is declared.

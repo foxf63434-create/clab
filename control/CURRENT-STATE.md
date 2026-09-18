@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_R03_DEVELOPMENT_ROUTED
+STATUS: HQ_WP04_R03_DEVELOPMENT_ACTIVE
 LAST_CONTROL_AUDIT: 2026-09-18
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
 CURRENT_AUTHORITIES: `OWNER_2026-09-18_CONTINUE_TO_WP04`; `OWNER_2026-09-18_ARCHITECTURE_STRENGTHENING`
@@ -60,7 +60,7 @@ ROUND: `R03`
 ATTEMPT_ID: `R03`
 TASK_ID: `HQ-DEV-WP04-API-R03`
 ACTIVE_OWNER: `HQ-DEVELOPER-01`
-RUN_STATUS: `DEVELOPMENT_ROUTED / WORKER_ENABLE_PENDING_READBACK`
+RUN_STATUS: `DEVELOPMENT_ACTIVE`
 INPUT_CANDIDATE: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
 INPUT_TREE: `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`
 BUILD_BRANCH: `build/wp04-status-evidence-api-001`
@@ -79,8 +79,9 @@ REJECTED_ROUNDS: `2/3`.
 SAME_ROOT_REJECT_COUNT: `1/2` for the current root cause.
 CURRENT_BLOCKER: `NONE`.
 LAST_TRANSITION_AT: `2026-09-18T16:36:15Z`.
+DEVELOPER_WORKER_ENABLED_AT: `2026-09-18T16:39:56Z` after required private/public read-back.
 
-HQ-REGISTRAR-01 verified terminal independent R02 QA REJECT on the exact candidate, preserved the immutable QA report/tests, confirmed the previous R01 defect is closed but the new in-scope review-independence defect remains, and returned the final bounded R03 candidate round to the same Developer. R03 has no candidate yet and must be materially new. Reviewer routing is not authorized for R02.
+HQ-REGISTRAR-01 verified terminal independent R02 QA REJECT on the exact candidate, preserved the immutable QA report/tests, confirmed the previous R01 defect is closed but the new in-scope review-independence defect remains, returned the final bounded R03 candidate round to the same Developer, remotely read back the private/public dispatch, then enabled the existing HQ-DEVELOPER-01 worker. R03 has no candidate yet and must be materially new. Reviewer routing is not authorized for R02.
 
 ### WP04 R03 correction boundary
 R03 must fix only `WP04_REVIEW_AUTHOR_INDEPENDENCE_NOT_ENFORCED` inside the existing WP04 allow-list. Developer-owned or QA-owned structurally valid Review evidence must not authorize independent-review PASS/REJECT and must fail closed to `UNKNOWN`; valid independently identified Reviewer evidence must remain compatible. Independence may not be inferred from filename/path alone.
@@ -110,7 +111,7 @@ SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`
 ASSIGNMENT_STATE: `ACTIVE_WP04_R03_DEVELOPMENT`
 PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01-WP04.md`
 CURRENT_TASK: `HQ-DEV-WP04-API-R03`; materially new candidate required.
-SCHEDULER_STATE: `DISABLED_PENDING_REQUIRED_PRIVATE/PUBLIC_READBACK`; Registrar may enable this existing worker only after the R03 dispatch read-back succeeds.
+SCHEDULER_STATE: enabled at `2026-09-18T16:39:56Z` only after required R03 private/public read-back.
 NEXT_STEP: produce one materially new R03 `READY_FOR_QA` candidate or truthful `BLOCKED`, then stop.
 
 ### HQ-QA-01
@@ -131,7 +132,7 @@ STATUS: disabled for WP04 core/API. #23 is provisioned but remains gated by fina
 
 ### HQ-CONTROL-01
 ROLE: bounded supervisor and final scoped WP04 judge only; Registrar owns routine lifecycle/state transitions.
-CURRENT_STATE: WP04 R02 ended in independent QA REJECT; final bounded R03 correction is routed to HQ-DEVELOPER-01 and has no candidate, QA, Reviewer or Control PASS yet.
+CURRENT_STATE: WP04 R02 ended in independent QA REJECT; final bounded R03 correction is active with HQ-DEVELOPER-01 and has no candidate, QA, Reviewer or Control PASS yet.
 
 ## WP04 lifecycle
 Developer `READY_FOR_QA` -> Registrar pins exact materially new candidate/tree/diff/evidence, disables Developer, moves to QA, reads back, then enables existing QA.
@@ -177,4 +178,4 @@ CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, cu
 Verify capabilities separately in each scheduled context. Missing evidence is `UNKNOWN/PENDING`, not PASS.
 
 ## Completion boundary
-WP04 R01 and R02 are terminal independent-QA REJECT and frozen as evidence. WP04 R03 is the final bounded candidate round and is now routed to Development with no candidate yet. Independent same-candidate R03 QA `READY_FOR_REVIEW`, independent Reviewer PASS and final Control acceptance are still required. No full-system `MISSION_COMPLETE`, merge, production, WP06 or Architecture Freeze PASS is declared.
+WP04 R01 and R02 are terminal independent-QA REJECT and frozen as evidence. WP04 R03 is the final bounded candidate round and is now active in Development with no candidate yet. Independent same-candidate R03 QA `READY_FOR_REVIEW`, independent Reviewer PASS and final Control acceptance are still required. No full-system `MISSION_COMPLETE`, merge, production, WP06 or Architecture Freeze PASS is declared.

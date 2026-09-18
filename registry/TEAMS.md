@@ -24,14 +24,14 @@ Fields per team:
 NODE_ID: `NODE-HQ-01`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 ACTIVE_PROJECTS: `PROJECT-CLAB-001`; current owner authority `OWNER_2026-09-18_CONTINUE_TO_WP04` under #18
-CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded implementation worker for WP04 core/API assigned to R02 correction; distinct existing QA/Reviewer workers for independent same-candidate checks; bounded Control supervision
-QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; accepted WP01 Reviewer PASS; accepted WP02 Reviewer PASS; #15 final `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` on exact WP03 R02 candidate; #18 current WP04 owner authority; private `HQ-WP04-LOOP-001.md` and reconciled `EXECUTION-STATE.md`; WP04 R01 Developer `READY_FOR_QA`; independent WP04 R01 QA `REJECT / HIGH / WP04_PROVENANCE_STRUCTURAL_VALIDATION_MISSING`; immutable R01 QA report/tests; scheduler observations for reused HQ workers
+CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded implementation worker for WP04 core/API active on R02 correction; distinct existing QA/Reviewer workers for independent same-candidate checks; bounded Control supervision
+QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; accepted WP01 Reviewer PASS; accepted WP02 Reviewer PASS; #15 final `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` on exact WP03 R02 candidate; #18 current WP04 owner authority; private `HQ-WP04-LOOP-001.md` and reconciled `EXECUTION-STATE.md`; WP04 R01 Developer `READY_FOR_QA`; independent WP04 R01 QA `REJECT / HIGH / WP04_PROVENANCE_STRUCTURAL_VALIDATION_MISSING`; immutable R01 QA report/tests; successful R02 dispatch read-back before reused Developer activation
 CURRENT_LOAD: BUILD-WP04 R02 bounded correction by the same HQ-DEVELOPER-01 after R01 independent QA REJECT; no R02 candidate exists yet
 STATUS: `WP04_R02_DEVELOPMENT_ACTIVE`
 WRITE_MODE: Registrar is sole routine WP04 loop/execution/public-HQ-state and worker-lifecycle writer; Developer/QA/Reviewer evidence remains role-owned; Control is final scoped judge only
 ASSIGNMENT/CONTROL_ISSUE: #18 WP04 authority/work package
 AUTOMATION_ID: `6aac1f2261a48191805ee42fa01ec632`
-LAST_CONTACT_EVIDENCE: Registrar verified the exact R01 QA terminal REJECT, preserved the R01 Developer/QA evidence and persisted tests, incremented rejected-round counters once, cleared rejected candidate/verdict pointers for the new round, bound the returned root cause and routed bounded R02 development to the same Developer; worker activation is permitted only after state read-back
+LAST_CONTACT_EVIDENCE: Registrar verified the exact R01 QA terminal REJECT, preserved the R01 Developer/QA evidence and persisted tests, incremented rejected-round counters once, cleared rejected candidate/verdict pointers for the new round, bound the returned root cause, remotely read back the R02 assignment/private/public dispatch, then enabled the existing HQ-DEVELOPER-01 worker at `2026-09-18T13:56:38Z`; QA and Reviewer remain dependency-gated
 CURRENT_OWNER: `HQ-DEVELOPER-01`
 CURRENT_TASK: `HQ-DEV-WP04-API-R02`
 NEXT_STEP: HQ-DEVELOPER-01 must produce a materially new immutable R02 candidate with exact Developer evidence or truthful `BLOCKED`; unchanged R01 candidate must not be reactivated; QA and Reviewer remain dependency-gated

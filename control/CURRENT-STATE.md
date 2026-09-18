@@ -1,17 +1,16 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP03_R02_BOUNDED_CONTROL_ACCEPTED
+STATUS: HQ_WP04_R01_DEVELOPMENT_ACTIVE
 LAST_CONTROL_AUDIT: 2026-09-18
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
-CONTROL_DECISION: CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS
-AUTHORITY_VERSION: `HQ-REPAIR-AUTH-20260918-01`
+CURRENT_AUTHORITY: `OWNER_2026-09-18_CONTINUE_TO_WP04`
+PUBLIC_WORK_ISSUE: #18 / `BUILD-WP04`
 
 ## Global control
 CONTROL: NIGHTJET GLOBAL CONTROL
 PRIVATE_CORE: `foxf63434-create/meta-sales-system`
 PUBLIC_BUS: `foxf63434-create/clab`
 IDENTITY_STANDARD: `control/IDENTITY-NAMESPACE-STANDARD.md`
-BOUNDED_CONTROL_ASSIGNMENT: #15 / `HQ-CONTROL-001`
 CONTROL_AGENT: `NODE-HQ-01 / TEAM-HQ-001 / HQ-CONTROL-01`
 
 ## PRIMARY HQ TEAM — CURRENT PATH
@@ -20,99 +19,86 @@ TEAM_ID: `TEAM-HQ-001`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 PROJECT_ID: `PROJECT-CLAB-001`
 MISSION_ID: `HQ-BOOTSTRAP-001`
-BOOTSTRAP_ISSUE: #11 remains a separate bootstrap-acceptance lifecycle and is not converted into full product/mission completion by this WP03 decision.
-ACTIVE_WORK_PACKAGE: #12 / `HQ-WP-001` — bounded WP03 R02 package accepted by Control.
-DEVELOPER_ISSUE: #16
-QA_ISSUE: #13
-REVIEWER_ISSUE: #14
-CURRENT_PRIVATE_DISPATCH: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/HQ-REPAIR-LOOP-001.md`
+BOOTSTRAP_ISSUE: #11 remains a separate bootstrap-acceptance lifecycle.
+ACTIVE_WORK_PACKAGE: #18 / `BUILD-WP04` — owner-authorized minimal read-only Status / Evidence API.
+CURRENT_PRIVATE_DISPATCH: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/HQ-WP04-LOOP-001.md`
 
-### Current repair dispatch
-PHASE: `CONTROL_ACCEPTED`
-ROUND: `R02`
-ATTEMPT_ID: `R02`
-TASK_ID: `HQ-CONTROL-001`
-ACTIVE_OWNER: `NONE`
-RUN_STATUS: `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS`
-CANDIDATE_SHA: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
-CANDIDATE_TREE: `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`
-CANDIDATE_DIFF_BASE: `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2`
-CANDIDATE_CHANGED_BLOBS: `meta-orchestrator/control-plane-v0/registry_projection.py=bdb13a2c58b37172f7ffa46aeb04d4492a414882`; `meta-orchestrator/control-plane-v0/tests/test_hq_identity_role_conflict_r02.py=631dda54e2c6d0d6d1fd69fe5f8d2172f4f019da`.
-DEVELOPER_EVIDENCE: `EVIDENCE/HQ-IDENTITY-R02-DEVELOPER.md`, commit `ed2644a72143b00090b65ed743b91051c55948d8`, blob `1da097f2a1f817c52fb8b2b33d5394aef959805a`, terminal `READY_FOR_QA`.
-QA_EVIDENCE: `EVIDENCE/HQ-IDENTITY-R02-QA.md`, commit `f80b4d699037c82a677a497e0471005fd3b2023f`, blob `c169c4f780ad84743b70955c3b7622991f4cb1c7`, terminal `READY_FOR_REVIEW`.
-QA_TESTS: `EVIDENCE/HQ-IDENTITY-R02-QA-TESTS.py`, commit `ff4c60a21f85fccb6dd4a4263886e40823897a1d`, blob `497759cfe7a146c9dc603eb8e7ec8cce39e937f8`.
-REVIEWER_EVIDENCE: `EVIDENCE/HQ-IDENTITY-R02-REVIEWER.md`, commit `2b1247b32619040a3708bcd94d4d052f616d2519`, blob `7a859d5225b8915be9511c34e321c0a77bc6ab01`, terminal `PASS`.
-RETURNED_R01_RESULT: independent Reviewer `REJECT / HIGH` for exact R01 candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2` after same-candidate QA `READY_FOR_REVIEW`.
-RETURNED_R01_PRIVATE_POINTER: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/EVIDENCE/HQ-IDENTITY-R01-REVIEWER.md`.
-SANITIZED_R02_RESULT: the bounded R02 correction closes the returned canonical HQ `ROLE`-carrier conflict path while preserving the current canonical HQ compatibility, legitimate legacy functional-role semantics and required fail-closed identity/provenance/secret boundaries supported by the current-round evidence.
-CONTROL_VERDICT: `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` from HQ-CONTROL-01 under #15.
-KNOWN_LIMITATION: network-backed `GitHubApiSource` integration remained explicitly `NOT_TESTED` in the independent QA sandbox; Control acceptance does not broaden into a network-integration PASS.
-REJECTED_ROUNDS: `1`.
-SAME_ROOT_REJECT_COUNT: `1`.
-MAX_CANDIDATE_ROUNDS: `3`.
-CURRENT_BLOCKER: `NONE`.
-REPAIR_BRANCH: `repair/hq-wp03-identity-001` remains frozen; no merge is authorized by this acceptance.
-REPAIR_BRANCH_BASE: `c30b4f82bd91ed42492a6e06587340ea79fd682c`.
-OLD_REJECTED_CANDIDATE: `e823a05a799bc9a02cfe246c463b9f61fd9e4264` remains historical evidence only and is not an active target.
-LAST_TRANSITION_AT: `2026-09-18T11:25:27Z`.
+### Preserved accepted history
+WP01: Reviewer PASS on `14872635c8c857ed33384975cd20f18cf7a8f5d9`.
+WP02: Reviewer PASS on `b2f18f96a91fb44a60f303303bbd0139e3b6d425`.
+WP03: bounded R02 repair is frozen at `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` for exact candidate `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`, tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`.
+The earlier rejected `e823a05a799bc9a02cfe246c463b9f61fd9e4264` and R01 Reviewer-REJECT candidate remain historical only and are not reopened by WP04.
+KNOWN_CARRIED_LIMITATION: network-backed `GitHubApiSource` integration remained explicitly `NOT_TESTED` in WP03 independent QA and must not be represented as PASS without new evidence.
 
-HQ-REGISTRAR-01 read back HQ-CONTROL-01's final bounded verdict and reconciled the private loop/execution state and this public HQ projection to `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS`. The exact candidate/evidence chain stays frozen and Developer, QA and Reviewer stay stopped. This closes only the owner-authorized bounded WP03 identity repair package; it does not authorize merge, production, deploy, WP04+, permission changes, legacy/remote activation or full-system `MISSION_COMPLETE`.
+### Current WP04 dispatch
+PHASE: `DEVELOPMENT`
+ROUND: `R01`
+ATTEMPT_ID: `R01`
+TASK_ID: `HQ-DEV-WP04-API-R01`
+ACTIVE_OWNER: `HQ-DEVELOPER-01`
+RUN_STATUS: `DEVELOPMENT_ACTIVE`
+INPUT_CANDIDATE: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
+INPUT_TREE: `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`
+BUILD_BRANCH: `build/wp04-status-evidence-api-001`
+CURRENT_CANDIDATE: `NOT_YET_PUBLISHED`
+DEVELOPER_EVIDENCE: `EVIDENCE/HQ-WP04-R01-DEVELOPER.md` — not yet published at reconciliation.
+DEVELOPER_CHECKPOINT: `CHECKPOINTS/HQ-WP04-R01-DEVELOPER.md` — not present at reconciliation.
+QA_EVIDENCE: `NOT_STARTED`.
+REVIEWER_EVIDENCE: `NOT_STARTED`.
+REJECTED_ROUNDS: `0/3`.
+SAME_ROOT_REJECT_COUNT: `0/2`.
+CURRENT_BLOCKER: `NONE_PROVEN`.
+LAST_TRANSITION_AT: `2026-09-18T11:53:10Z`.
 
-The owner-approved authority `HQ-REPAIR-AUTH-20260918-01` resolved the former one-developer/team-capacity HOLD for this repair chain. It authorized one implementation developer and the bounded Developer -> QA -> independent Reviewer -> correction loop. That loop completed at R02 with same-candidate Reviewer PASS and final bounded Control acceptance. No new repair round is active.
+HQ-REGISTRAR-01 reconciled the private execution state and this public HQ projection from the frozen WP03 acceptance to the owner-authorized WP04 R01 DEVELOPMENT phase. This does not reopen WP03 and does not imply WP04 PASS, READY, merge or deployment.
+
+### WP04 contract
+Goal: minimal read-only Status / Evidence API over accepted WP01-WP03 derived state, exposing projects, agents, tasks, reviews, Human Gates, incidents/evidence and freshness/conflict flags.
+Every outward status must have source/evidence provenance or explicit `UNKNOWN`.
+GitHub remains source of truth; the API is derived/rebuildable; Scheduled Wake remains unchanged.
+Preserve fail-closed provenance/identity/security and truthful `STALE_PROJECTION`, `MISSING_REVIEW`, `CONFLICT`, `UNKNOWN` semantics. No false READY/PASS.
+No arbitrary repository-write endpoint, production/deploy, merge-to-main, WP05/WP06, permission/workflow change, provider/runtime replacement or legacy/remote activation is authorized.
 
 ### HQ-REGISTRAR-01
 SCHEDULER_TASK_ID: `6aac1f2261a48191805ee42fa01ec632`
-OBSERVATION: Registrar remains the sole routine writer of repair-loop/execution state, worker lifecycle and HQ public projection through lifecycle reconciliation.
-AUTHORITY: state/projection synchronization only; do not implement, perform QA or write Reviewer verdicts. The accepted bounded repair requires no further recurring repair-loop transition.
+STATUS: `ACTIVE_WP04_REGISTRAR`
+AUTHORITY: sole routine WP04 loop/execution/public-HQ-state and worker-lifecycle writer; no implementation, QA, Reviewer verdict or merge authority.
 
 ### HQ-DEVELOPER-01
-WORKER_ISSUE: #16
 SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`
-ASSIGNMENT_STATE: `TERMINAL_READY_FOR_QA_R02`.
-PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01.md`.
-R02_RESULT: exact candidate `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9` / tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`, terminal `READY_FOR_QA`.
-SCHEDULER_STATE: disabled after terminal handoff.
-NEXT_STEP: remain stopped; no new repair round is active.
+ASSIGNMENT_STATE: `ACTIVE_WP04_R01_DEVELOPMENT`
+PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-01-WP04.md`
+CURRENT_TASK: `HQ-DEV-WP04-API-R01`
+SCHEDULER_STATE: enabled for the authorized WP04 R01 development task.
+NEXT_STEP: publish one materially new immutable candidate plus role-owned Developer evidence with `READY_FOR_QA`, or truthful `BLOCKED`, then stop.
 
 ### HQ-QA-01
-WORKER_ISSUE: #13
 SCHEDULER_TASK_ID: `6aac3099fc9881919e9de980b9fd86a7`
-ASSIGNMENT_STATE: `TERMINAL_READY_FOR_REVIEW_R02`.
-PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-QA-IDENTITY-001.md`.
-PINNED_CANDIDATE: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9` / tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`.
-TERMINAL_RESULT: `READY_FOR_REVIEW`.
-PRIVATE_OUTPUTS: `.../EVIDENCE/HQ-IDENTITY-R02-QA.md` and `.../EVIDENCE/HQ-IDENTITY-R02-QA-TESTS.py`, pinned above by immutable commit/blob identities.
-SCHEDULER_STATE: disabled after terminal handoff.
-NEXT_STEP: remain stopped for this exact candidate.
+ASSIGNMENT_STATE: `ARMED_CONDITIONAL_WP04`
+PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-QA-WP04.md`
+SCHEDULER_STATE: disabled until Registrar pins a new immutable WP04 candidate and moves dispatch to QA.
 
 ### HQ-REVIEWER-01
-WORKER_ISSUE: #14
 SCHEDULER_TASK_ID: `6aac30a8f27c819198aea8a734aeaf5a`
-ASSIGNMENT_STATE: `TERMINAL_PASS_R02`.
-PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-REVIEWER-IDENTITY-001.md`.
-PINNED_CANDIDATE: `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9` / tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`.
-PINNED_QA: R02 `READY_FOR_REVIEW` report/test artifact identities listed above.
-TERMINAL_RESULT: `PASS`.
-PRIVATE_OUTPUT: `.../EVIDENCE/HQ-IDENTITY-R02-REVIEWER.md`, commit/blob identity listed above.
-SCHEDULER_STATE: disabled after terminal handoff.
-NEXT_STEP: none; bounded package has been accepted by Control.
+ASSIGNMENT_STATE: `ARMED_CONDITIONAL_WP04`
+PRIVATE_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-REVIEWER-WP04.md`
+SCHEDULER_STATE: disabled until same-candidate independent QA is `READY_FOR_REVIEW` and Registrar moves dispatch to REVIEW.
+
+### HQ-DEVELOPER-02
+STATUS: disabled / unassigned for WP04 core/API. It must not duplicate WP04 work; only a separately authorized disjoint package may activate it.
 
 ### HQ-CONTROL-01
-CONTROL_ISSUE: #15 / `HQ-CONTROL-001`.
-ROLE: bounded supervision and final acceptance only; not an executor and not a competing routine state writer.
-CURRENT_AUTHORITY: final bounded judgment for the frozen R02 repair package.
-CURRENT_STATE: `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS`; no active repair-loop ownership remains.
+ROLE: bounded supervisor and final scoped WP04 judge only; Registrar owns routine lifecycle/state transitions.
+CURRENT_STATE: WP04 is in DEVELOPMENT and has no Control PASS.
 
-## Repair-loop lifecycle
-The owner-authorized bounded repair chain reached R02 after one rejected candidate round. The R02 candidate completed developer handoff, same-candidate independent QA `READY_FOR_REVIEW`, independent Reviewer `PASS`, then final Control acceptance. Developer, QA and Reviewer are stopped and the candidate/evidence chain is frozen.
-
-The bounded WP03 repair lifecycle is closed. Reviewer PASS and Control acceptance still do not authorize merge, production, WP04 or full-system `MISSION_COMPLETE`.
-
-## Historical WP03 evidence boundary
-The old candidate `e823a05a799bc9a02cfe246c463b9f61fd9e4264` remains historical independent QA/Reviewer evidence and is not an active target. R01 candidate `be4868cd43e8bb8c26e26ecb9cffcc981491b0a2` has terminal same-candidate QA `READY_FOR_REVIEW` followed by independent Reviewer `REJECT / HIGH`; both remain immutable evidence. Positive QA never overrides a same-candidate Reviewer REJECT.
+## WP04 lifecycle
+Developer `READY_FOR_QA` -> Registrar pins exact candidate/tree/diff/evidence, disables Developer, moves to QA, reads back, then enables existing QA.
+Independent same-candidate QA `READY_FOR_REVIEW` -> Registrar disables QA, pins report/tests, moves to REVIEW, reads back, then enables existing Reviewer.
+In-scope QA/Reviewer `REJECT` -> same Developer receives a materially new round, max 3 rounds; stop after two same-root rejects or any architecture/security conflict.
+Reviewer `PASS` -> workers stop and Registrar routes `READY_FOR_CONTROL_REVIEW`. Final WP04 acceptance belongs to Control only.
 
 ## Legacy local policy
-Preserve old chats/history; old NIGHTJET execution schedules remain disabled and receive no new work. No reactivation/repurposing without explicit current owner/control authority. Verify no overlapping active writer before shared-state transfer. Other accounts and unrelated automations are untouched.
+Preserve old chats/history; old NIGHTJET execution schedules remain disabled and receive no new work. No reactivation/repurposing without explicit current owner/control authority. Verify no overlapping active writer before shared-state transfer.
 
 ## REMOTE-ADMIN-01
 NODE_ID: `NODE-REMOTE-01`
@@ -138,19 +124,14 @@ CONTROL_ISSUE: #10
 STATE_ISSUE: #7
 WORKER_ASSIGNMENTS: #3, #4, #5, #6.
 MANUAL_ROLE_HUMAN_GATE: #2 superseded/closed.
-This HQ control task does not grant authority over remote teams.
+This HQ work does not grant authority over remote teams.
 
 ## Functional workforce and namespaces
 Every participant/task has NODE_ID + TEAM_ID + AGENT_ID + PROJECT_ID + MISSION_ID. Unique names and actual assignment bindings are mandatory. A role label or schedule is not proof of an isolated process or independent review. AUTHOR != FINAL JUDGE.
 
-The bounded R02 repair chain used one Registrar, one implementation developer, the existing independent QA and Reviewer, plus #15 Control supervision. Terminal workers stay stopped; do not create duplicate work or expand scope from this accepted package.
-
 ## Security and integration boundaries
-CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, customer data and secrets stay private. Use sanitized identifiers/pointers. Public visibility is not file-write permission.
+CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, customer data and secrets stay private. Use sanitized identifiers/pointers.
+Verify capabilities separately in each scheduled context. Missing evidence is `UNKNOWN/PENDING`, not PASS.
 
-Verify capabilities separately in each scheduled context. A tool available during interactive provisioning may not exist during a scheduled run. Failed writes must be reported in task output when GitHub reporting itself is unavailable.
-
-## Progress and recovery
-Use existing accepted work/checkpoints. The bounded repair is accepted and no recurring repair-loop work remains. Missing evidence for any future, separately authorized task is UNKNOWN/PENDING until the relevant observation justifies more.
-
-This is the reconciled public HQ snapshot after `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS`. The acceptance is scoped to the bounded WP03 R02 identity repair; no full-system PASS or `MISSION_COMPLETE` is declared.
+## Completion boundary
+WP04 is currently DEVELOPMENT R01 only. Completion requires a materially new immutable candidate, Developer evidence, exact-candidate independent QA, independent Reviewer PASS and final Control acceptance. No full-system `MISSION_COMPLETE` is declared.

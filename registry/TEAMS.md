@@ -24,20 +24,20 @@ Fields per team:
 NODE_ID: `NODE-HQ-01`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 ACTIVE_PROJECTS: `PROJECT-CLAB-001`; current owner authority `OWNER_2026-09-18_CONTINUE_TO_WP04` under #18
-CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one active bounded implementation worker for WP04 core/API; distinct existing QA/Reviewer workers dependency-gated for independent same-candidate checks; bounded Control supervision
-QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; accepted WP01 Reviewer PASS; accepted WP02 Reviewer PASS; #15 final `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` on exact WP03 R02 candidate; #18 current WP04 owner authority; private `HQ-WP04-LOOP-001.md` and reconciled `EXECUTION-STATE.md`; scheduler observations for the reused HQ workers
-CURRENT_LOAD: BUILD-WP04 R01 development — minimal read-only Status / Evidence API based on accepted WP03 candidate `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
-STATUS: `WP04_R01_DEVELOPMENT_ACTIVE`
+CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded implementation worker for WP04 core/API now terminal on R01; distinct existing QA/Reviewer workers for independent same-candidate checks; bounded Control supervision
+QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; accepted WP01 Reviewer PASS; accepted WP02 Reviewer PASS; #15 final `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` on exact WP03 R02 candidate; #18 current WP04 owner authority; private `HQ-WP04-LOOP-001.md` and reconciled `EXECUTION-STATE.md`; verified WP04 R01 Developer `READY_FOR_QA`; scheduler observations for reused HQ workers
+CURRENT_LOAD: BUILD-WP04 R01 independent QA on exact candidate `50159a0c732e9dc212dbc8e4de18fc4bdefa7cfa`, tree `880ddda97bc46c77295e14e326b40e52eb5ed49c`, derived from frozen accepted WP03 base `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`
+STATUS: `WP04_R01_QA_ACTIVE`
 WRITE_MODE: Registrar is sole routine WP04 loop/execution/public-HQ-state and worker-lifecycle writer; Developer/QA/Reviewer evidence remains role-owned; Control is final scoped judge only
 ASSIGNMENT/CONTROL_ISSUE: #18 WP04 authority/work package
 AUTOMATION_ID: `6aac1f2261a48191805ee42fa01ec632`
-LAST_CONTACT_EVIDENCE: Registrar reconciled owner-authorized WP04 R01 DEVELOPMENT to private execution state and public HQ projection; no WP04 Developer terminal artifact/checkpoint existed at reconciliation
-CURRENT_OWNER: `HQ-DEVELOPER-01`
-CURRENT_TASK: `HQ-DEV-WP04-API-R01`
-NEXT_STEP: Developer publishes one materially new immutable WP04 candidate plus `EVIDENCE/HQ-WP04-R01-DEVELOPER.md` with `READY_FOR_QA` or truthful `BLOCKED`; Registrar then performs dependency-safe lifecycle routing without owner relay
+LAST_CONTACT_EVIDENCE: Registrar verified and pinned the Developer R01 terminal candidate/evidence, confirmed no pre-existing current-round QA terminal artifact/tests/checkpoint, remotely read back QA dispatch, and enabled the existing HQ-QA-01 worker; Developer remains stopped and Reviewer dependency-gated
+CURRENT_OWNER: `HQ-QA-01`
+CURRENT_TASK: `HQ-QA-WP04-API-R01`
+NEXT_STEP: HQ-QA-01 independently tests the exact pinned candidate and publishes one terminal `READY_FOR_REVIEW`, `REJECT` or `BLOCKED`; Registrar then performs only the dependency-safe next lifecycle transition
 ROUND_BUDGET: WP04 rejected candidate rounds `0/3`; same-root rejects `0/2`
 INPUT_BASE: frozen accepted WP03 candidate `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`, tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`
-KNOWN_LIMITATION: network-backed `GitHubApiSource` remains `NOT_TESTED` unless WP04 independently exercises it with evidence
+KNOWN_LIMITATION: network-backed `GitHubApiSource` remains `NOT_TESTED` unless WP04 independent QA actually exercises it with evidence
 NAMESPACE: all current HQ agents use `HQ-` IDs under `NODE-HQ-01 / TEAM-HQ-001`
 LEGACY_LOCAL_POLICY: old ambiguous NIGHTJET/Njet Club chats are history-only; old execution stays disabled unless explicitly reauthorized
 

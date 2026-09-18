@@ -25,24 +25,26 @@ NODE_ID: `NODE-HQ-01`
 ADMIN_AGENT_ID: `HQ-REGISTRAR-01`
 ACTIVE_PROJECTS: `PROJECT-CLAB-001`; current authorities `OWNER_2026-09-18_CONTINUE_TO_WP04` under #18 and `OWNER_2026-09-18_ARCHITECTURE_STRENGTHENING` under #20-#23
 CAPABILITIES: factual scheduled Registrar GitHub read/write execution; one bounded implementation worker for active WP04 core/API; distinct existing QA/Reviewer workers for independent same-candidate checks; bounded Control supervision; post-WP04 disjoint lanes provisioned but gated by final WP04 Control acceptance
-QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; accepted WP01 Reviewer PASS; accepted WP02 Reviewer PASS; #15 final `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS`; #18 WP04 authority; private `HQ-WP04-LOOP-001.md` and reconciled `EXECUTION-STATE.md`; WP04 R01 Developer `READY_FOR_QA` then independent QA `REJECT / HIGH / WP04_PROVENANCE_STRUCTURAL_VALIDATION_MISSING`; materially new WP04 R02 Developer `READY_FOR_QA`; independent R02 QA `REJECT / HIGH / WP04_REVIEW_AUTHOR_INDEPENDENCE_NOT_ENFORCED`; immutable R02 QA report/tests; no Reviewer authorization for either rejected candidate
-CURRENT_LOAD: BUILD-WP04 final bounded R03 correction active with HQ-DEVELOPER-01; no R03 candidate yet; QA terminal/stopped after R02 reject; Reviewer dependency-gated
-STATUS: `WP04_R03_DEVELOPMENT_ACTIVE`
+QUALIFICATION_EVIDENCE: #11 factual automated wake/read-back; accepted WP01 Reviewer PASS; accepted WP02 Reviewer PASS; #15 final `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS`; #18 WP04 authority; private `HQ-WP04-LOOP-001.md` and reconciled `EXECUTION-STATE.md`; WP04 R01 independent QA `REJECT / HIGH / WP04_PROVENANCE_STRUCTURAL_VALIDATION_MISSING`; WP04 R02 independent QA `REJECT / HIGH / WP04_REVIEW_AUTHOR_INDEPENDENCE_NOT_ENFORCED`; materially new R03 Developer `READY_FOR_QA` exact candidate and immutable evidence now routed to independent R03 QA
+CURRENT_LOAD: BUILD-WP04 R03 independent QA active on exact candidate `2c10e1772c87f3791850f4f7db17551d881db90c`, tree `4c88623c238902471a4976159367fa815bb3653c`; Developer terminal/stopped; Reviewer dependency-gated
+STATUS: `WP04_R03_QA_ACTIVE`
 WRITE_MODE: Registrar is sole routine WP04 loop/execution/public-HQ-state and worker-lifecycle writer; Developer/QA/Reviewer evidence remains role-owned; Control is final scoped WP04 judge only; separate freeze control owns Architecture Freeze state
 ASSIGNMENT/CONTROL_ISSUE: #18 WP04 authority/work package; #20-#23 architecture-strengthening gates remain waiting final WP04 Control acceptance
 AUTOMATION_ID: `6aac1f2261a48191805ee42fa01ec632`
-LAST_CONTACT_EVIDENCE: Registrar verified exact R02 independent QA terminal `REJECT / HIGH` on candidate `2c5ff49495ac2b0db969c308f4a6b1b837ff7822` / tree `32d5533f33fe27bd857849b6769901edd93176d1`, preserved QA report commit `381c0854840faa376e31b658a492d8a0337a22f5` / blob `d6b4b1fdc5722c352cccec54497a801db9a5ca0d` and persisted tests commit `d37e9eecb7775b8036a528e94cb40fb2e7ca23ba` / blob `3714e1fb0253520fb2afbaab570329c4590f0edc`, routed final R03 correction at `2026-09-18T16:36:15Z`, completed required read-back, and enabled the existing HQ-DEVELOPER-01 worker at `2026-09-18T16:39:56Z`
-CURRENT_OWNER: `HQ-DEVELOPER-01`
-CURRENT_TASK: `HQ-DEV-WP04-API-R03`
-NEXT_STEP: HQ-DEVELOPER-01 must publish exactly one materially new R03 `READY_FOR_QA` candidate or truthful `BLOCKED`, then stop; QA and Reviewer remain stopped until dependency-safe routing
+LAST_CONTACT_EVIDENCE: Registrar verified R03 Developer terminal `READY_FOR_QA`, exact candidate `2c10e1772c87f3791850f4f7db17551d881db90c` / tree `4c88623c238902471a4976159367fa815bb3653c`, verified rejected-R02→R03 `ahead_by=2 / behind_by=0` and accepted-WP03→R03 `ahead_by=9 / behind_by=0` with exactly two authorized WP04 paths, pinned Developer evidence commit `9b2d8c7d0b31b8be3b3cd34fba9060b02fad3a1d` / blob `d28e0d01ce876ec4ea92e1b0e83a707a8698b0c2`, completed read-back, and enabled existing HQ-QA-01 at `2026-09-18T17:24:54.868988Z`
+CURRENT_OWNER: `HQ-QA-01`
+CURRENT_TASK: `HQ-QA-WP04-API-R03`
+NEXT_STEP: HQ-QA-01 must publish exactly one independent terminal R03 `READY_FOR_REVIEW`, `REJECT`, or truthful `BLOCKED`, then stop; Reviewer remains stopped unless Registrar verifies exact same-candidate `READY_FOR_REVIEW`
 ROUND_BUDGET: WP04 rejected candidate rounds `2/3`; current root-cause occurrences `1/2`; R03 is the final available candidate round
 INPUT_BASE: frozen accepted WP03 candidate `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`, tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`
 R01_TERMINAL: candidate `50159a0c732e9dc212dbc8e4de18fc4bdefa7cfa`, tree `880ddda97bc46c77295e14e326b40e52eb5ed49c`; independent QA `REJECT / HIGH / WP04_PROVENANCE_STRUCTURAL_VALIDATION_MISSING`; Reviewer not authorized
 R02_TERMINAL: candidate `2c5ff49495ac2b0db969c308f4a6b1b837ff7822`, tree `32d5533f33fe27bd857849b6769901edd93176d1`; independent QA `REJECT / HIGH / WP04_REVIEW_AUTHOR_INDEPENDENCE_NOT_ENFORCED`; Reviewer not authorized
 R02_QA_EVIDENCE: private `EVIDENCE/HQ-WP04-R02-QA.md`, commit `381c0854840faa376e31b658a492d8a0337a22f5`, blob `d6b4b1fdc5722c352cccec54497a801db9a5ca0d`; tests `EVIDENCE/HQ-WP04-R02-QA-TESTS.py`, commit `d37e9eecb7775b8036a528e94cb40fb2e7ca23ba`, blob `3714e1fb0253520fb2afbaab570329c4590f0edc`
-R03_CANDIDATE: `PENDING_MATERIALLY_NEW`
-DEVELOPER_WORKER_STATE: existing worker `6aac9020d68c8191af4cee8bd53e374b` enabled at `2026-09-18T16:39:56Z` after required read-back
-QA_WORKER_STATE: existing worker `6aac3099fc9881919e9de980b9fd86a7` disabled after terminal R02 QA
+R03_CANDIDATE: `2c10e1772c87f3791850f4f7db17551d881db90c`
+R03_TREE: `4c88623c238902471a4976159367fa815bb3653c`
+R03_DEVELOPER_EVIDENCE: private `EVIDENCE/HQ-WP04-R03-DEVELOPER.md`, commit `9b2d8c7d0b31b8be3b3cd34fba9060b02fad3a1d`, blob `d28e0d01ce876ec4ea92e1b0e83a707a8698b0c2`
+DEVELOPER_WORKER_STATE: existing worker `6aac9020d68c8191af4cee8bd53e374b` disabled after terminal R03 `READY_FOR_QA`
+QA_WORKER_STATE: existing worker `6aac3099fc9881919e9de980b9fd86a7` enabled at `2026-09-18T17:24:54.868988Z` on exact R03 candidate
 REVIEWER_WORKER_STATE: existing worker `6aac30a8f27c819198aea8a734aeaf5a` disabled/dependency-gated
 KNOWN_LIMITATION: network-backed `GitHubApiSource` remains `NOT_TESTED`; #22 is provisioned to close it only after WP04 Control acceptance
 POST_WP04_GATES: #21 EvidenceRef hardening, #22 live GitHub source proof, #23 WP05 UI are provisioned but inactive until final exact WP04 Control acceptance

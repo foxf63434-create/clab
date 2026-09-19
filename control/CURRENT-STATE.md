@@ -37,8 +37,8 @@ Architecture remains `CONTROL_ACCEPTED / ACCEPTED_FOR_IMPLEMENTATION_PLANNING`; 
 ## Problem-cycle projection
 Private `[NIGHTJET-PROBLEM]` issues are the sole problem register and are not task authority.
 - #44 PostgreSQL runtime remains WAITING.
-- #45 WP04 identity defect now has exact independent QA + Reviewer PASS + Control acceptance and the authorized next route has been instantiated; Registrar reconciliation/closure is being recorded on that same card without erasing history.
-- #46 reporting rollout remains IN_PROGRESS. Dev01/Dev02/QA/Reviewer have section-7 instructions at legitimate boundaries; Dev03 and Freeze remain `PENDING_SAFE_BOUNDARY`, so #46 cannot close.
+- #45 WP04 identity defect is `RESOLVED/CLOSED` after exact R06 independent QA, Reviewer PASS, final Control acceptance and Registrar operational next-route reconciliation. Any material recurrence must reopen/reuse the same canonical card; history and retry accounting remain preserved.
+- #46 reporting rollout remains IN_PROGRESS. Dev01/Dev02/QA/Reviewer have section-7 instructions at legitimate boundaries and real execution evidence; Dev03 and Freeze remain `PENDING_SAFE_BOUNDARY`, so #46 cannot close.
 - #47 exact-byte QA runtime remains resolved history.
 
 ## Current guardrails

@@ -33,15 +33,15 @@ R06_INPUT_BLOBS: `status_api.py=d0d122e9eb4502f92439ff7dc973465d3328f13b`; `test
 R06_CANDIDATE: `NOT_YET_SUBMITTED`.
 CONTROL_ACCEPTANCE: `NOT_REACHED`.
 
-R06 successor authority: `HQ-CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01`, private exact ref `foxf63434-create/meta-sales-system@cd0cb880f41dbb48fe15289d8740ec25bee19d31:meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01.md`, blob `5c998dc0efd2fed4d1885272402a34bb9819b29f`.
+R06 successor authority: `HQ-CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01`, private exact ref retained in the private control contour. This decision preserves the same-root stop as history and authorizes only one materially revised R06 successor; it does not reset counters, open R07 automatically, or permit R08.
 
-R05 terminal history remains frozen: QA independently exact-byte tested the R05 candidate with `118/118 PASS`, but independent Reviewer returned `REJECT / HIGH / NOT_READY_FOR_CONTROL_REVIEW` on remaining canonical identity-admission scope. The defect remains the existing private #45 root family, not a new unrelated problem.
+R05 terminal history remains frozen: QA independently exact-byte tested the R05 candidate with `118/118 PASS`, but independent Reviewer returned `REJECT / HIGH / NOT_READY_FOR_CONTROL_REVIEW` on remaining canonical identity-admission scope. The defect remains the existing private canonical root family, not a new unrelated problem.
 
 R06 is limited to `meta-orchestrator/control-plane-v0/status_api.py` and `meta-orchestrator/control-plane-v0/tests/test_status_api.py`. It must preserve accepted scanner identity-admission semantics at the direct normalized API boundary, support valid admitted `TASK_ID` and legacy `TASK`, fail closed on malformed/missing/conflicting Review associations, apply scanner-equivalent admission to Gate/HumanGate aliases, reject state tokens as gate identities, and prevent fallback display IDs from restoring evidence authority.
 
-Historical test handling is explicit and narrow: immutable R05 QA suite blob `d03864c160c8c2bd76b50ee3da082405982e5068` must execute unchanged. Only `test_c09_identity_review_task_alias_does_not_restore_authority` is Control-classified as `HISTORICAL_ORACLE_CONFLICT` and non-authoritative for R06 acceptance. Any other historical-suite failure is blocking.
+Historical test handling is explicit and narrow: immutable R05 QA suite must execute unchanged. One exact Control-classified historical oracle conflict is non-authoritative for R06 acceptance; any other historical-suite failure is blocking.
 
-WORKER_STATE: Dev01 existing schedule is enabled on exact R06 source-bound prompt but execution/ACK/output is not yet proven. QA is disabled and dependency-gated until exact R06 `READY_FOR_QA`; Reviewer is disabled and dependency-gated until same-candidate independent QA `READY_FOR_REVIEW`. A terminal independent R06 REJECT returns to Control diagnosis; Registrar does not automatically open R07.
+WORKER_STATE: Dev01 existing schedule is enabled on exact R06 source-bound prompt but execution/ACK/output is not yet proven. QA is disabled and dependency-gated until exact R06 `READY_FOR_QA`. The WP04 Reviewer task is also dependency-gated; the shared existing Reviewer slot is currently allocated to a separate independent architecture review and is not executing WP04. If WP04 becomes `READY_FOR_REVIEW` while that bounded review is active, it remains pending and gets next-slot priority after the active review completes. A terminal independent R06 REJECT returns to Control diagnosis; Registrar does not automatically open R07.
 NEXT_WP04_TRANSITION: exact role-owned Dev01 R06 checkpoint or terminal Developer evidence. Schedule enablement alone is not execution.
 
 ## Separate WP09-01 DSA lane
@@ -56,8 +56,11 @@ BLOCKER: `POSTGRESQL_ISOLATED_RUNTIME_UNAVAILABLE_IN_CURRENT_EXECUTION_ENVIRONME
 Q1 remains partial/blocked; Q2-Q6 not executed; Q7 partial probe only. A later Control-owned isolated remedy attempt failed before PostgreSQL test steps. No runtime recovery or qualification is proven. This blocker is not a V0 dependency.
 NEXT_DSA_TRANSITION: Control identifies a materially new safe already-authorized isolated PostgreSQL runtime/client/verifier path, then Registrar performs an explicit Q01 recheck. Independent QUALIFIED is required before DSA implementation.
 
+## Shared verifier occupancy
+HQ-REVIEWER-01 is currently enabled only for one separate bounded independent architecture review while WP04 has no eligible Reviewer handoff. This is verifier utilization, not WP04 execution or acceptance. There is no simultaneous double assignment. Public state intentionally does not export private review candidate details.
+
 ## Problem cycle
-Private native `[NIGHTJET-PROBLEM]` Issues in `foxf63434-create/meta-sales-system` are the sole problem register and are not task authority. #44 PostgreSQL runtime remains `WAITING`. #45 Control diagnosis prerequisite is satisfied and R06 is routed; until actual executor evidence exists the card is no stronger than `TRIAGED / ROUTED_AWAITING_EXECUTOR_RECEIPT`. #46 reporting rollout remains `IN_PROGRESS`; QA and Reviewer already executed under updated prompts and Dev01 addendum is now applied/read back at the legitimate R06 safe boundary, without inventing worker ACK or effectiveness. #47 exact-byte QA runtime remains `RESOLVED / CLOSED`.
+Private native `[NIGHTJET-PROBLEM]` Issues in `foxf63434-create/meta-sales-system` are the sole problem register and are not task authority. PostgreSQL runtime remains waiting; the WP04 identity defect is routed into R06 and is not yet stronger than routed/awaiting executor receipt; reporting rollout remains in progress; the prior exact-byte QA runtime problem remains resolved/closed.
 
 ## Downstream gates
 Post-WP04 #21/#22/#23 and later V0 work remain gated behind a future exact WP04 candidate with independent QA + Reviewer PASS + final Control acceptance. Freeze state remains owned only by canonical Freeze Control. WP09-02 waits accepted WP09-01; later DSA DAG dependencies remain unchanged.

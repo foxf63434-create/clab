@@ -1,9 +1,9 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_STOPPED_R05_SAME_ROOT_REJECT_LIMIT_WITH_DSA_RUNTIME_BLOCKED
+STATUS: HQ_WP04_R06_DEVELOPMENT_WITH_DSA_RUNTIME_BLOCKED
 LAST_CONTROL_AUDIT: 2026-09-19
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
-CURRENT_AUTHORITIES: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-PREFLIGHT-PREVENTION-20260919-01`; scoped `HQ-CONTROL-ROUTING-CORRECTION-20260919-01`; `HQ-CONTROL-LONG-PACKETS-20260919-01`; historical R04 recovery authority remains history only.
+CURRENT_AUTHORITIES: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-PREFLIGHT-PREVENTION-20260919-01`; `HQ-CONTROL-LONG-PACKETS-20260919-01`; scoped `HQ-CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01`; historical R04 recovery authority remains history only.
 PUBLIC_WORK_ISSUES: #18 / `BUILD-WP04`; #24 / `WP09-01 DSA qualification`.
 
 ## Global control
@@ -20,30 +20,29 @@ WP03: frozen `CONTROL_ACCEPTED / WP03_R02_BOUNDED_PASS` on `b7445b57ae6db866cf4d
 Product network-backed `GitHubApiSource` remains `NOT_TESTED`; connector reads are not product integration proof.
 
 ## BUILD-WP04
-R01-R04 remain immutable independent REJECT history. Delivery authority permits at most R05-R07, total maximum candidate rounds 7, no R08/reset/renamed retry. After terminal R05 Reviewer REJECT, rejected-round accounting is `5`.
+R01-R05 remain immutable REJECT history. `REJECTED_ROUNDS=5`, total maximum candidate rounds remains 7, and no R08/reset/renamed retry exists. The R04+R05 consecutive same-root stop event remains preserved; automatic correction stopped correctly. A later material Control diagnosis now explicitly authorizes exactly one materially revised R06 successor inside the existing finite budget. R07 is not automatically open.
 
-CURRENT_PHASE: `STOPPED`.
-CURRENT_ROUND: `R05`.
-TASK_ID: `HQ-REVIEWER-WP04-API-R05`.
-ACTIVE_OWNER: `NONE`.
-RUN_STATUS: `TERMINAL_R05_REVIEW_REJECT / CONTROL_DIAGNOSIS_REQUIRED`.
+CURRENT_PHASE: `DEVELOPMENT`.
+CURRENT_ROUND: `R06`.
+TASK_ID: `HQ-DEV-WP04-API-R06`.
+ACTIVE_OWNER: `HQ-DEVELOPER-01`.
+RUN_STATUS: `DEVELOPER_ENABLED_AWAITING_EXECUTION / EXECUTION_NOT_YET_PROVEN`.
 BUILD_BRANCH: `build/wp04-status-evidence-api-001`.
-R04_INPUT: `5d92dd1455a1090546a6295adf394f96b0fb2881` / tree `397b6b920e915c7d1cff82d73996a3de51f359d4`.
-PINNED_R05_CANDIDATE: `2a1b39fef0778e786bac79b1cd51c54118269783` / tree `a73d7cecc935f1f49af145aa1f8ba5f22832c880`.
-PINNED_BLOBS: `status_api.py=d0d122e9eb4502f92439ff7dc973465d3328f13b`; `tests/test_status_api.py=49cd93c82fc6e7eff541dc29709a615993351335`.
-DEVELOPER_RESULT: `READY_FOR_QA`; author remains frozen.
-QA_RESULT: `READY_FOR_REVIEW`; exact-byte gate `12/12`, `118/118 PASS`, `0 FAIL`, `0 ERROR`, compile PASS, unchanged R01-R04 suites and required candidate/upstream/full imported pipeline executed. QA evidence blob `02982ff273ff6df9e1cfff10822060b515e79954`; QA tests blob `d03864c160c8c2bd76b50ee3da082405982e5068`.
-REVIEWER_RESULT: `REJECT / HIGH / NOT_READY_FOR_CONTROL_REVIEW`.
-REVIEWER_EVIDENCE: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/EVIDENCE/HQ-WP04-R05-REVIEWER.md`, commit `a4ee1362e5be778b39dc6dd719a2079ffa7d4990`, blob `b58f1c42ebbe823ad831ff9cc1b0253fb170ba1a`.
-REVIEWER_ROOT_CAUSE: `WP04_IDENTITY_ADMISSION_SEMANTICS_NOT_PRESERVED_AT_STATUS_API_BOUNDARY`.
+R06_REPAIR_INPUT: `2a1b39fef0778e786bac79b1cd51c54118269783` / tree `a73d7cecc935f1f49af145aa1f8ba5f22832c880`.
+R06_INPUT_BLOBS: `status_api.py=d0d122e9eb4502f92439ff7dc973465d3328f13b`; `tests/test_status_api.py=49cd93c82fc6e7eff541dc29709a615993351335`.
+R06_CANDIDATE: `NOT_YET_SUBMITTED`.
 CONTROL_ACCEPTANCE: `NOT_REACHED`.
 
-Reviewer found the QA execution itself exact-byte and real, but the binding identity-admission contract remains false-green: valid admitted legacy Review `TASK` association was incorrectly removed, and the supported direct normalized-input boundary still uses display `safe()` rather than accepted scanner identifier-admission semantics, allowing malformed non-secret Review/Gate identifiers to authorize state in cases the scanner rejects. This is recurrence/remaining scope of the existing private problem #45 defect family, not a new unrelated root.
+R06 successor authority: `HQ-CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01`, private exact ref `foxf63434-create/meta-sales-system@cd0cb880f41dbb48fe15289d8740ec25bee19d31:meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01.md`, blob `5c998dc0efd2fed4d1885272402a34bb9819b29f`.
 
-STOP_RULE: R04 and R05 are consecutive independent rejections in the same canonical identity-admission/root family. Delivery section 6 therefore stops automatic correction after two consecutive same-root rejections. `CONSECUTIVE_SAME_ROOT_REJECTS=2`; `NEXT_UNUSED_CANDIDATE=R06_BLOCKED_PENDING_CONTROL_DIAGNOSIS`. R06 is not open, Dev01 is not reactivated, and the rejected R05 candidate remains frozen.
+R05 terminal history remains frozen: QA independently exact-byte tested the R05 candidate with `118/118 PASS`, but independent Reviewer returned `REJECT / HIGH / NOT_READY_FOR_CONTROL_REVIEW` on remaining canonical identity-admission scope. The defect remains the existing private #45 root family, not a new unrelated problem.
 
-WORKER_STATE: Dev01 disabled/frozen; QA disabled after terminal handoff; Reviewer disabled after terminal REJECT. Existing HQ-CONTROL-01 standing worker remains enabled, but scheduler enablement is not a Control decision or ACK.
-NEXT_WP04_TRANSITION: a material HQ-CONTROL-01 diagnosis/scoped successor decision under the finite delivery contract. Issue text alone does not authorize R06. No Reviewer-to-Control acceptance route exists for this rejected candidate.
+R06 is limited to `meta-orchestrator/control-plane-v0/status_api.py` and `meta-orchestrator/control-plane-v0/tests/test_status_api.py`. It must preserve accepted scanner identity-admission semantics at the direct normalized API boundary, support valid admitted `TASK_ID` and legacy `TASK`, fail closed on malformed/missing/conflicting Review associations, apply scanner-equivalent admission to Gate/HumanGate aliases, reject state tokens as gate identities, and prevent fallback display IDs from restoring evidence authority.
+
+Historical test handling is explicit and narrow: immutable R05 QA suite blob `d03864c160c8c2bd76b50ee3da082405982e5068` must execute unchanged. Only `test_c09_identity_review_task_alias_does_not_restore_authority` is Control-classified as `HISTORICAL_ORACLE_CONFLICT` and non-authoritative for R06 acceptance. Any other historical-suite failure is blocking.
+
+WORKER_STATE: Dev01 existing schedule is enabled on exact R06 source-bound prompt but execution/ACK/output is not yet proven. QA is disabled and dependency-gated until exact R06 `READY_FOR_QA`; Reviewer is disabled and dependency-gated until same-candidate independent QA `READY_FOR_REVIEW`. A terminal independent R06 REJECT returns to Control diagnosis; Registrar does not automatically open R07.
+NEXT_WP04_TRANSITION: exact role-owned Dev01 R06 checkpoint or terminal Developer evidence. Schedule enablement alone is not execution.
 
 ## Separate WP09-01 DSA lane
 PUBLIC_LANE_ISSUE: #24.
@@ -58,7 +57,7 @@ Q1 remains partial/blocked; Q2-Q6 not executed; Q7 partial probe only. A later C
 NEXT_DSA_TRANSITION: Control identifies a materially new safe already-authorized isolated PostgreSQL runtime/client/verifier path, then Registrar performs an explicit Q01 recheck. Independent QUALIFIED is required before DSA implementation.
 
 ## Problem cycle
-Private native `[NIGHTJET-PROBLEM]` Issues in `foxf63434-create/meta-sales-system` are the sole problem register and are not task authority. #44 PostgreSQL runtime remains `WAITING`. #45 existing WP04 identity defect is now waiting on Control diagnosis after terminal R05 Reviewer REJECT and the same-root stop rule. #46 reporting rollout remains `IN_PROGRESS`; QA and Reviewer have executed legitimate product tasks under updated prompts, with no fabricated separate reporting ACK. #47 exact-byte QA runtime remains `RESOLVED / CLOSED` with no recurrence.
+Private native `[NIGHTJET-PROBLEM]` Issues in `foxf63434-create/meta-sales-system` are the sole problem register and are not task authority. #44 PostgreSQL runtime remains `WAITING`. #45 Control diagnosis prerequisite is satisfied and R06 is routed; until actual executor evidence exists the card is no stronger than `TRIAGED / ROUTED_AWAITING_EXECUTOR_RECEIPT`. #46 reporting rollout remains `IN_PROGRESS`; QA and Reviewer already executed under updated prompts and Dev01 addendum is now applied/read back at the legitimate R06 safe boundary, without inventing worker ACK or effectiveness. #47 exact-byte QA runtime remains `RESOLVED / CLOSED`.
 
 ## Downstream gates
 Post-WP04 #21/#22/#23 and later V0 work remain gated behind a future exact WP04 candidate with independent QA + Reviewer PASS + final Control acceptance. Freeze state remains owned only by canonical Freeze Control. WP09-02 waits accepted WP09-01; later DSA DAG dependencies remain unchanged.

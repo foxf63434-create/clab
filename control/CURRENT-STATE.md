@@ -1,39 +1,37 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_ACCEPTED_EVIDENCE_REF_R02_REPAIR_ROUTED_WP05_CONTROL_ROUTED_GITHUB_SOURCE_RUNTIME_WAITING_FREEZE_OPEN_HARD_BLOCKED_DSA_RUNTIME_BLOCKED
+STATUS: HQ_WP04_ACCEPTED_EVIDENCE_REF_R02_QA_ROUTED_WP05_CONTROL_ACCEPTED_GITHUB_SOURCE_RUNTIME_WAITING_FREEZE_OPEN_HARD_BLOCKED_DSA_RUNTIME_BLOCKED
 LAST_CONTROL_AUDIT: 2026-09-20
 SOURCE_OF_TRUTH: GitHub current private evidence + exact role assignments + actual worker configuration/read-back
 CURRENT_AUTHORITIES: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-PREFLIGHT-PREVENTION-20260919-01`; task-sizing policy v2; final `CONTROL-WP04-R06-ACCEPTANCE-20260919-01`; `meta-orchestrator/architecture-freeze-v1/POST-WP04-PARALLELIZATION.md`.
 PUBLIC_WORK_ISSUES: #18 BUILD-WP04/HQ coordination; #21 EVIDENCE-REF-01; #22 GitHubApiSource proof; #23 fixture-only WP05; #24 WP09-01 DSA qualification.
 
 ## BUILD-WP04 — accepted bounded result
-WP04 is complete at `CONTROL_ACCEPTED / WP04_R06_BOUNDED_PASS` on immutable candidate `0568efb436a708bb2c103810bc1ed3424c0f5a05` / tree `a0525281f3f548616a66f31861078f4c9b813829`. Final Control evidence: `e12fd40af8fcd783990a595063e5cd8bbf7ff263`, blob `6a70c30cb53f641afac89fd616365914867b2df0`.
+WP04 remains complete at `CONTROL_ACCEPTED / WP04_R06_BOUNDED_PASS` on immutable candidate `0568efb436a708bb2c103810bc1ed3424c0f5a05` / tree `a0525281f3f548616a66f31861078f4c9b813829`. Final Control evidence: `e12fd40af8fcd783990a595063e5cd8bbf7ff263`, blob `6a70c30cb53f641afac89fd616365914867b2df0`.
 R01-R05 remain immutable REJECT history; `REJECTED_ROUNDS=5`; R04+R05 same-root stop preserved; R07 was not opened; R08/reset/renamed retry prohibited. WP04 acceptance is not product-main merge, deploy or production.
 
 ## #21 — EVIDENCE-REF-01
-R01 immutable candidate `d04c16c0d46b13bec9378595ab5de7b2e51f10d5` / tree `582325597a17482916ddcb3934c3f2d38fe0f313` reached independent QA and was terminally `REJECT`ed. QA evidence: `618ea85f9f92896663094742768eda0dba3bbf23`, blob `551bc954b4bb1e994af6e1b810a825c1fcbe89d6`; adversarial test artifact: `145dae4f9566548d6812d1a88802174ebd25c802`, blob `93165f83100a056ad622168113d6f2f81780a70d`.
+R01 remains independently rejected on immutable candidate `d04c16c0d46b13bec9378595ab5de7b2e51f10d5` / tree `582325597a17482916ddcb3934c3f2d38fe0f313`. QA evidence: `618ea85f9f92896663094742768eda0dba3bbf23`, blob `551bc954b4bb1e994af6e1b810a825c1fcbe89d6`; adversarial artifact: `145dae4f9566548d6812d1a88802174ebd25c802`, blob `93165f83100a056ad622168113d6f2f81780a70d`.
 
-Exact accepted regressions were 69/69 PASS with compile/import PASS, but adversarial checks proved that noncanonical EvidenceRef repository paths such as leading `./`, repeated `/`, dot segments and path-only `.` could survive validation and reach authority-bearing Registry/Status results. Private canonical problem #51 is `IN_PROGRESS / R02_REPAIR_ROUTED`.
+R02 author produced terminal `READY_FOR_QA` on materially new immutable candidate `b095666d41f40e6c30713935ffdbd651127e9ba5` / tree `d8e9d436dff355d60ad8d5d22e73903f9f469459`. Developer evidence: `5d02dc9cc066c4d5cd5ac5bfdaf50a62cf968dc7`, blob `4d19156dfd98bf650de3d707dd50abfa43f7c7c8`. R02 changed only `evidence_ref.py` blob `ab0302c198889e9b2ece47d2ce36ece7b6039df4` and `tests/test_evidence_ref.py` blob `f806c2df1c969bfec1a8a12b9d0434eeabb86717`; author reports 71/71 named tests PASS plus compile/import and adversarial reproduction PASS. Author results are not acceptance.
 
-Existing HQ-DEVELOPER-01 is routed to bounded `HQ-DEV-EVIDENCE-REF-01-R02` on the same existing branch, preserving R01 immutable history. R02 product allow-list is only `evidence_ref.py` plus `tests/test_evidence_ref.py`; scanner/registry/status remain byte-identical regression targets. `ENABLED != EXECUTED`; no R02 author result exists yet.
+Existing HQ-QA-01 is now routed exclusively to `HQ-QA-EVIDENCE-REF-01-R02` on `qa/evidence-ref-01-r02-001`, branch base `5d02dc9cc066c4d5cd5ac5bfdaf50a62cf968dc7`. The exact assignment was published/read back and the existing hourly QA worker was enabled without cadence change. `ENABLED != EXECUTED`; no R02 independent QA terminal evidence is yet observed. Private #51 is `VERIFYING / R02_QA_ROUTED / AWAITING_INDEPENDENT_QA_OUTPUT`.
 
 ## #22 — GITHUB-SOURCE-01
 Independent QA remains terminal `BLOCKED_RUNTIME / PRODUCT_GITHUB_REST_PATH_NOT_EXECUTABLE_IN_CURRENT_RUNTIME`, evidence `4c315cac7a4dbf078699d3fec595f1026ae84bda`, blob `90f3530f72828fea7331cb129a06bf0dbecea705`.
-HQ-CONTROL-01 diagnosis evidence `f049d4539d6ce3fa8cf1eed6ef4b44a6f00b57dc`, blob `a8b113b3a5632b114694ac4399193752141065b0`, remains `WAITING_RUNTIME_CAPABILITY`. Product `GitHubApiSource` is still `NOT_TESTED / NETWORK_PATH_NOT_PROVEN`; connector reachability is cross-check only. Private #49 remains WAITING; no unchanged retry is routed.
+HQ-CONTROL-01 diagnosis `f049d4539d6ce3fa8cf1eed6ef4b44a6f00b57dc`, blob `a8b113b3a5632b114694ac4399193752141065b0`, remains `WAITING_RUNTIME_CAPABILITY`. Product `GitHubApiSource` is still `NOT_TESTED / NETWORK_PATH_NOT_PROVEN`; connector reachability is cross-check only. Private #49 remains WAITING; no unchanged retry is routed.
 
 ## #23 — fixture-only WP05 One Window
-Immutable candidate remains `22ae2873576c71cf3ef23ebfb3a41fe7061377af` / tree `d6f8fbc2286fcd4ac0f0c70e6379d765fdfd2935`, exactly five `one_window_ui` frontend/fixture/test paths and no backend/API changes.
+Immutable candidate `22ae2873576c71cf3ef23ebfb3a41fe7061377af` / tree `d6f8fbc2286fcd4ac0f0c70e6379d765fdfd2935` remains exactly five `one_window_ui` frontend/fixture/test paths and no backend/API changes.
 
-Independent QA completed `READY_FOR_REVIEW`, evidence `0da9aab1e6c7526f4ccb860cb5168ea925132bce`, blob `99e462ae2d3a8d07d2dac6a5cf71c5d110203ab0`: exact-byte 5/5, fixture suite 11/11 PASS, JS syntax PASS, HTML parse PASS and semantic/static matrix 35 PASS / 0 FAIL.
+The full bounded chain is now complete: independent QA `READY_FOR_REVIEW` at `0da9aab1e6c7526f4ccb860cb5168ea925132bce`, independent Reviewer `PASS / READY_FOR_CONTROL_REVIEW` at `3a99365c55027ab2c35a61c8441728965b15bcd3`, and final Control `CONTROL_ACCEPTED / WP05_R01_FIXTURE_BOUNDED_PASS` at `beaf794c1c43afc847857fe74f0303305692d223:meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/CONTROL-WP05-R01-ACCEPTANCE-20260920-01.md`, blob `d9be3cadf0e348e1b39655bb4b87562231148e30`.
 
-Independent Reviewer then completed `PASS / READY_FOR_CONTROL_REVIEW`, evidence `3a99365c55027ab2c35a61c8441728965b15bcd3`, tree `828986dcf848c0a228d447c7fa77f48db8437422`, blob `db87ed7ab6edba3283083b594c1a0aca60f68d97`.
-
-Existing HQ-CONTROL-01 is now routed exclusively to `HQ-CONTROL-WP05-FIXTURE-UI-R01` for bounded final Control review of the same immutable fixture-only candidate. `ENABLED != EXECUTED`; no WP05 Control acceptance exists yet. Any acceptance remains fixture-only/read-only and is not Freeze PASS, live integration, deploy, production or product-main merge.
+This acceptance is fixture-only/read-only. It is not Architecture Freeze PASS, live API/GitHub integration, Human Gate write authority, WP06 effect authority, provider/account/model/credential/session permission, product-main merge, deploy or production. WP06 remains dependency/Freeze-gated and has not been opened by Registrar.
 
 ## Architecture Freeze v1
-Actual Freeze reconciliation has executed and been read back. Authoritative state remains `OPEN / HARD_BLOCKED`; public Freeze receipt is clab#20 comment `5745260271`. At that reconciliation G1-G3 were PASS from accepted WP04 and G5 remained blocked by GITHUB-SOURCE runtime proof.
+Authoritative Freeze state remains `OPEN / HARD_BLOCKED`; Freeze Control alone writes `meta-orchestrator/architecture-freeze-v1/STATE.md`. Registrar has not written Freeze state.
 
-Since that reconciliation, EVIDENCE-REF R01 has terminally REJECTED and R02 repair is routed. Freeze Control has been refreshed to reconcile this material change plus the WP05 Reviewer handoff. Registrar has not written Freeze state. `FREEZE_PASS` is not supportable while EVIDENCE-REF lacks an accepted independent chain and GITHUB-SOURCE product-network proof remains blocked.
+Material evidence now queued for Freeze reconciliation includes the R02 EVIDENCE-REF author handoff plus exact independent-QA routing, and terminal WP05 bounded Control acceptance. These do not support `FREEZE_PASS`: G4 still lacks an accepted R02 independent chain and G5 remains runtime-blocked/NOT_TESTED. Freeze Control has been refreshed to reconcile the current exact state while preserving its sole-writer boundary.
 
 ## WP09-01 DSA
 Still `BLOCKED_RUNTIME / CAPABILITY_STATE: UNVERIFIED`. Saved probe `aad029d0f4c2e3c0bc1e73f8b8bccbc79a0a63e3` / tree `8611573a1059a2b20cd5bb3f5e600fbbbc0eb25b`. No recovered PostgreSQL/client runtime or independent qualification is proven. This is a precise DSA/dependent-package blocker, not a global post-WP04 hold.
@@ -45,12 +43,12 @@ Architecture remains `CONTROL_ACCEPTED / ACCEPTED_FOR_IMPLEMENTATION_PLANNING`; 
 Private `[NIGHTJET-PROBLEM]` issues are the sole problem register and are not task authority.
 - #44 PostgreSQL runtime: WAITING, unchanged.
 - #45 WP04 identity defect: RESOLVED/CLOSED; recurrence reuses the same card.
-- #46 reporting rollout: IN_PROGRESS. Dev01/Dev02/QA/Reviewer have real execution under section-7-aware prompts; Freeze has real reconciliation execution/read-back; QA created/read back distinct problem #51 and Registrar triaged the same card. Dev03 remains `PENDING_SAFE_BOUNDARY`; final independent Control closure inspection remains outstanding.
+- #46 reporting rollout: IN_PROGRESS. Dev01/Dev02/QA/Reviewer/Freeze have real execution under section-7-aware prompts; Dev03 remains `PENDING_SAFE_BOUNDARY`; final independent Control closure inspection remains outstanding.
 - #47 exact-byte QA runtime: resolved history.
 - #49 GITHUB-SOURCE outbound runtime: WAITING / CONTROL_DIAGNOSIS_COMPLETE / WAITING_RUNTIME_CAPABILITY; no unchanged retry.
-- #51 EVIDENCE-REF noncanonical path aliases: IN_PROGRESS / R02_REPAIR_ROUTED / AWAITING_DEVELOPER_OUTPUT.
+- #51 EVIDENCE-REF path aliases: VERIFYING / R02_QA_ROUTED / AWAITING_INDEPENDENT_QA_OUTPUT.
 
 ## Current guardrails
-HQ-DEVELOPER-01 is assigned only to EVIDENCE-REF R02. Shared QA is free/disabled after terminal R01 REJECT. Shared Reviewer is free/disabled after WP05 terminal PASS. HQ-CONTROL-01 is assigned only to WP05 bounded final review. Freeze Control alone writes Freeze state. GITHUB-SOURCE remains runtime-waiting. No production/deploy, product-main merge, live DSA/scheduler cutover, secret/privilege change, paid infrastructure or customer-effect action is authorized.
+HQ-DEVELOPER-01 is terminal/frozen after the R02 author handoff. Shared HQ-QA-01 is assigned only to R02 independent QA. Shared Reviewer is free/disabled until actual `READY_FOR_REVIEW`. WP05 Control terminal acceptance was consumed and duplicate Control reruns were stopped. Freeze Control remains standing reconciliation only and has no product authority. No production/deploy, product-main merge, live DSA/scheduler cutover, secret/privilege change, paid infrastructure or customer-effect action is authorized.
 
-PUBLISHED != ACKNOWLEDGED. ENABLED != EXECUTED. EXECUTED != QUALIFIED. CONNECTOR_ACCESS != PRODUCT_NETWORK_PROOF. WP04_CONTROL_ACCEPTED != DOWNSTREAM_PASS.
+PUBLISHED != ACKNOWLEDGED. ENABLED != EXECUTED. EXECUTED != QUALIFIED. CONNECTOR_ACCESS != PRODUCT_NETWORK_PROOF. WP05_CONTROL_ACCEPTED != FREEZE_PASS.

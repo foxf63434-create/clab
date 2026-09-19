@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_R06_DEVELOPER_ACTION_M12_WP01_PLANNING_WITH_DSA_RUNTIME_BLOCKED
+STATUS: HQ_WP04_R06_DEVELOPER_ACTION_M12_WP01_PLANNING_READY_WITH_DSA_RUNTIME_BLOCKED
 LAST_CONTROL_AUDIT: 2026-09-19
 SOURCE_OF_TRUTH: GitHub current state + exact role evidence + actual worker configuration/read-back
 CURRENT_AUTHORITIES: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-PREFLIGHT-PREVENTION-20260919-01`; task-sizing policy v2; scoped `HQ-CONTROL-WP04-R06-SAME-ROOT-DIAGNOSIS-20260919-01`.
@@ -25,9 +25,7 @@ R06_CANDIDATE: NOT_YET_SUBMITTED
 R06_DEVELOPER_EVIDENCE: NOT_YET_PUBLISHED
 CONTROL_ACCEPTANCE: NOT_REACHED
 
-Actual Dev01 repository action is now proven; this is stronger than scheduler enablement. The observed descendant is saved nonterminal progress only: it is not READY_FOR_QA, not a terminal candidate, and does not prove tests or a fix. Registrar preserved that progress and source-bound the same R06 task to resume from it rather than reset to R05.
-
-R01-R05 remain immutable REJECT history. `REJECTED_ROUNDS=5`; the R04+R05 same-root stop remains preserved. Control explicitly authorized only this materially revised R06 within the total maximum 7 rounds. R07 is not automatically open; R08/reset/renamed retry is prohibited.
+Actual Dev01 repository action is proven; the observed descendant is saved nonterminal progress only, not READY_FOR_QA, not a terminal candidate and not test/fix proof. R01-R05 remain immutable REJECT history; `REJECTED_ROUNDS=5`; R04+R05 same-root stop is preserved. R07 is not automatically open; R08/reset/renamed retry is prohibited.
 
 HQ-QA-01 remains disabled/dependency-gated until exact R06 terminal READY_FOR_QA evidence. HQ-REVIEWER-01 remains dependency-gated until a later exact QA handoff. Any terminal independent R06 REJECT returns to Control diagnosis.
 
@@ -38,18 +36,19 @@ INDEPENDENT_REVIEW: PASS / commit `c4c4dac5e58a99b57d74527853dd812336ae02d7` / b
 CONTROL_OUTPUT: commit `be0e93a72b31f3fe34865502c136665b963bfcce` / tree `1dc86ba8a0eab2a940434dcf405b5f7293f77fb2` / blob `4c529e4912fe2801f24bbf4c7d7d73f2edb06baa`
 CHANGE_REQUIRED: NONE
 
-CURRENT_PHASE: IMPLEMENTATION_PLANNING
-TASK_ID: HQ-DEV02-M12-WP01-PLAN-R01
-ACTIVE_OWNER: HQ-DEVELOPER-02
-RUN_STATUS: PLANNING_WORKER_ENABLED / EXECUTION_NOT_YET_PROVEN
+CURRENT_PHASE: IMPLEMENTATION_PLANNING_COMPLETE / WAITING_DEPENDENCY
+TASK_ID: HQ-DEV02-M12-WP01-PLAN-R01 / TERMINAL
+ACTIVE_OWNER: NONE
+RUN_STATUS: PLANNING_READY / EXECUTION_STILL_GATED
 PLANNING_BRANCH: planning/m12-wp01-resource-registry-contract-r01
-PLANNING_BRANCH_BASE: `be0e93a72b31f3fe34865502c136665b963bfcce`
+PLANNING_TERMINAL_HEAD: `5fc7febeea186be43477133feea0e882d85d6165` / tree `7fa9f308f2513658985bd48d6864b5e940c299fa`
+PLANNING_COMPARE: ahead_by=3 / behind_by=0 / merge-base exact Control base
 IMPLEMENTATION_EXECUTION: GATED
 PRODUCTION: FORBIDDEN
 
-Control accepted the exact architecture for dependency-safe planning only. The first bounded successor is M12-WP01 Resource Registry / Discovery planning/documentation. Existing Dev02 was source-bound to that task and enabled with configuration read-back; no planning output or worker ACK is yet inferred.
+HQ-DEVELOPER-02 completed the bounded planning-only package. Exact outputs were remotely read back: task-contract blob `78de75b4a256ea53299e6f0b00526c9ab165db75`, runtime/preflight blob `f0788fe199802689913279929a940270b421244a`, role evidence blob `11e54b8971075e36e6c8ec335778a0f57a26bc65`. Registrar independently verified exactly three authorized planning/evidence additions and no product-code, migration, implementation-test or accepted-architecture mutation. Existing Dev02 schedule is stopped after terminal planning evidence.
 
-Future M12-WP01 implementation still requires accepted WP09-01 DSA Foundation plus required PostgreSQL/runtime preflight. WP09-02 is additionally required before production async propagation/integration. There is no blanket V0 WP04 dependency, and no Mission12 product-code worker is authorized by the current planning task.
+Future M12-WP01 implementation remains `BLOCKED_DEPENDENCY`: it requires exact accepted WP09-01 DSA Foundation, authorized PostgreSQL/client runtime and an independent verifier path. Accepted WP09-02 is additionally required before production async propagation/integration. There is no blanket V0 WP04 dependency and no Mission12 product-code worker is active.
 
 ## WP09-01 DSA lane
 PHASE: BLOCKED_RUNTIME
@@ -61,16 +60,17 @@ Q1 remains partial/blocked; Q2-Q6 are not executed. No recovered PostgreSQL or i
 
 ## Problem-cycle projection
 Private native `[NIGHTJET-PROBLEM]` issues remain the sole problem register and are not task authority.
-- PostgreSQL runtime remains WAITING.
-- WP04 identity defect is IN_PROGRESS because real Dev01 action is now observed, but independent fix verification has not started.
-- reporting rollout remains IN_PROGRESS; Dev01, Dev02, QA and Reviewer have received the section-7 addendum at legitimate task boundaries. Dev03 and Freeze remain pending safe boundary. Control independent rollout inspection is still required before closure.
-- prior exact-byte QA runtime issue remains resolved history.
+- #44 PostgreSQL runtime remains WAITING.
+- #45 WP04 identity defect remains IN_PROGRESS because real Dev01 action is observed, but no terminal R06 developer evidence or independent verification exists.
+- #46 reporting rollout remains IN_PROGRESS. Dev01, Dev02, QA and Reviewer have the section-7 addendum at legitimate boundaries; Dev02 now has real terminal task execution under the updated prompt, and Control independently inspected that rollout boundary in private #46 comment `5743014769`. Dev03 and Freeze remain pending safe boundary, so #46 is not closed.
+- #47 exact-byte QA runtime remains resolved history.
 
 ## Next material transitions
 1. Dev01 publishes a genuine R06 checkpoint or terminal Developer evidence on the same bounded task.
-2. Dev02 publishes M12-WP01 planning checkpoint/evidence; implementation execution remains gated.
+2. Mission12 waits for material WP09-01/runtime prerequisite recovery before any product implementation assignment.
 3. Registrar consumes the next complete eligible handoff without double-assigning independent verifiers.
+4. Rollout #46 stays open until remaining legitimate safe-boundary adoption and closure evidence exist.
 
 No production/deploy, product-main merge, live DSA cutover, paid infrastructure, false PASS or self-acceptance is authorized.
 
-PUBLISHED != ACKNOWLEDGED. ENABLED != EXECUTED. EXECUTED != QUALIFIED. CONTROL_ACCEPTED_FOR_PLANNING != IMPLEMENTATION_AUTHORIZED.
+PUBLISHED != ACKNOWLEDGED. ENABLED != EXECUTED. EXECUTED != QUALIFIED. PLANNING_READY != IMPLEMENTATION_AUTHORIZED.

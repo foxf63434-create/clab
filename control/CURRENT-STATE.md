@@ -15,7 +15,7 @@ CURRENT_PHASE: REVIEW
 CURRENT_ROUND: R06
 TASK_ID: HQ-REVIEWER-WP04-API-R06
 ACTIVE_OWNER: HQ-REVIEWER-01
-RUN_STATUS: REVIEWER_ASSIGNED_AWAITING_EXECUTION
+RUN_STATUS: REVIEWER_ENABLED_AWAITING_EXECUTION
 BUILD_BRANCH: build/wp04-status-evidence-api-001
 R06_REPAIR_INPUT: `2a1b39fef0778e786bac79b1cd51c54118269783` / tree `a73d7cecc935f1f49af145aa1f8ba5f22832c880`
 IMMUTABLE_R06_CANDIDATE: `0568efb436a708bb2c103810bc1ed3424c0f5a05` / tree `a0525281f3f548616a66f31861078f4c9b813829`
@@ -30,7 +30,7 @@ The QA evidence records the complete R06 identity/association matrix, original C
 
 R01-R05 remain immutable REJECT history; `REJECTED_ROUNDS=5`; R04+R05 same-root stop remains preserved; R07 is not automatically open and R08/reset/renamed retry remains prohibited.
 
-HQ-REVIEWER-01 is now assigned to the exact same immutable R06 candidate. The Reviewer schedule is enabled only after assignment/prompt read-back; `ENABLED != EXECUTED`. A Reviewer PASS means only `READY_FOR_CONTROL_REVIEW`; a Reviewer REJECT returns to Control diagnosis and does not automatically open R07.
+HQ-REVIEWER-01 is assigned to the exact same immutable R06 candidate. Registrar read back the Reviewer assignment and matching prompt, then enabled existing Reviewer schedule `6aac30a8f27c819198aea8a734aeaf5a` without cadence change. `ENABLED != EXECUTED`. A Reviewer PASS means only `READY_FOR_CONTROL_REVIEW`; a Reviewer REJECT returns to Control diagnosis and does not automatically open R07.
 
 ## Mission 12 — Universal Access & Resource Fabric
 ARCHITECTURE_RESULT: `CONTROL_ACCEPTED / ACCEPTED_FOR_IMPLEMENTATION_PLANNING`

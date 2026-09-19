@@ -43,7 +43,9 @@ For every new mission:
 11. reconcile accepted public-safe state/evidence into canonical CLAB files when required.
 
 ## Task sizing
-Prefer bounded 20–45 minute executor packages rather than micro-tasks. A package may contain 2–4 tightly related subtasks inside one ownership/work-package boundary. Do not cross QA, Reviewer, architecture, Human Gate, production/external-side-effect, or shared-writer boundaries without new authority.
+Default for teams without a later scoped sizing directive: prefer bounded 20–45 minute executor packages rather than micro-tasks. A package may contain 2–4 tightly related subtasks inside one ownership/work-package boundary. Do not cross QA, Reviewer, architecture, Human Gate, production/external-side-effect, or shared-writer boundaries without new authority.
+
+HQ-only amendment `HQ-CONTROL-LONG-PACKETS-20260919-01`: NODE-HQ-01 / TEAM-HQ-001 uses outcome-sized assignments that may span multiple hourly wakes. The old minute/subtask estimate is not a task ceiling or a reason to stop early. Resume authorized nonterminal work from a durable role-owned checkpoint under the same task; do not restart discovery or disable a worker merely because a session ended. Complete details remain in private `foxf63434-create/meta-sales-system`, `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/TASK-SIZING-AND-WAKE-EFFICIENCY-POLICY.md`, version 2 at commit `16f2e6e6d85084a67907092756a28d7e0421a84a`, blob `72bd2142adda746884a8cfc2c71cf91b24d6c48a`. This is process policy, not implementation authority: terminal QA rejection, exhausted revision budgets, owner stops and all safety gates remain binding. No R05, new build wave, new agent or longer platform runtime is authorized by this amendment. Other teams and unrelated projects are unchanged.
 
 ## Blocker routing
 Two materially different reasonable attempts without progress -> stop spinning and route:

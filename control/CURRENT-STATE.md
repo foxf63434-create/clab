@@ -3,7 +3,7 @@
 STATUS: HQ_WP04_R05_DEVELOPMENT_WITH_DSA_RUNTIME_BLOCKED
 LAST_CONTROL_AUDIT: 2026-09-19
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
-CURRENT_AUTHORITIES: `OWNER_2026-09-18_CONTINUE_TO_WP04`; `HQ-CONTROL-WP04-RECOVERY-20260918-01` (historical R04 authority); `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-LONG-PACKETS-20260919-01`; `OWNER_2026-09-18_ARCHITECTURE_STRENGTHENING`
+CURRENT_AUTHORITIES: `OWNER_2026-09-18_CONTINUE_TO_WP04`; `HQ-CONTROL-WP04-RECOVERY-20260918-01` (historical R04 authority); `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; scoped `HQ-CONTROL-ROUTING-CORRECTION-20260919-01`; `HQ-CONTROL-LONG-PACKETS-20260919-01`; `OWNER_2026-09-18_ARCHITECTURE_STRENGTHENING`
 PUBLIC_WORK_ISSUES: #18 / `BUILD-WP04`; #24 / `WP09-01 DSA qualification`
 
 ## Global control
@@ -25,6 +25,7 @@ PARALLEL_LANE_STATE: #24 / `WP09-01` — Q01 terminal `BLOCKED_RUNTIME`; capabil
 CURRENT_PRIVATE_DISPATCH: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/HQ-WP04-LOOP-001.md`
 DELIVERY_AUTHORITY: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`, public #18 comment `5739474463`, private `foxf63434-create/meta-sales-system@3c48f9ebd90a5ca84bf6c606dbccb27ef6c5ecad:meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/CONTROL-DELIVERY-RESUMPTION-20260919-01.md`, blob `7b7b2eaf755a437ee2be83587a82c9890d5bb61b`.
 PARALLEL_AUTHORITY: `HQ-CONTROL-PARALLEL-LANES-20260919-01`, public #24, private `foxf63434-create/meta-sales-system@6b97bc81562008ae3f830ceef3ce41365ade9118:meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/CONTROL-PARALLEL-LANES-20260919-01.md`, blob `80b058b68263da50adcf7ed69d6783ad73f65b8f`.
+ROUTING_CORRECTION: scoped `HQ-CONTROL-ROUTING-CORRECTION-20260919-01`, public #24 comment `5740027208`, private `foxf63434-create/meta-sales-system@077d30920a2e451d82f2bb46309bfa81cbad632d:meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/CONTROL-ROUTING-CORRECTION-20260919-01.md`, blob `961af54ef816fd2789bb37b27f15a5439ca16249`. It repaired routing text/preflight only; it did not repair the PostgreSQL runtime or authorize a restart.
 TASK_POLICY: `HQ-CONTROL-LONG-PACKETS-20260919-01` / v2 @ `16f2e6e6d85084a67907092756a28d7e0421a84a`, blob `72bd2142adda746884a8cfc2c71cf91b24d6c48a`.
 
 ### Preserved accepted history
@@ -68,13 +69,15 @@ DEVELOPER: assigned complete bounded outcome; continuation across wakes is allow
 QA: `DEPENDENCY_GATED / DISABLED`; exact candidate not yet pinned.
 REVIEWER: `DEPENDENCY_GATED / DISABLED`; exact independent QA READY_FOR_REVIEW not yet present.
 CONTROL_ACCEPTANCE: `NOT_REACHED`.
+ROUTING_PREFLIGHT: the scoped correction leaves current R05 untouched. At the next safe V0 handoff, prompt materialization must use the owning assignment's exact fields, fully resolved private B path, current task/owner/authority, terminal-output veto and remote read-back.
 
 ### Separate WP09-01 DSA qualification lane — terminal runtime blocker
 PUBLIC_LANE_ISSUE: #24.
 DEV03_ASSIGNMENT: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/ASSIGNMENTS/HQ-DEVELOPER-03-WP09-01.md`.
-DEV03_CURRENT_ASSIGNMENT_COMMIT: `214d79dc1910605ebd32031f2bc910885d541fde`, blob `96721d04300b403c51f513b38f5d17f0c2bd36ed`.
+DEV03_CURRENT_ASSIGNMENT_COMMIT: `96264afed536150eab962e5e07100d979f861cbe`, blob `8e16d7b2b0c0a82fbc05d5afee5f4807d0088134`.
 ASSIGNMENT_BOOTSTRAP_REF: `02467a3853707bb75aee391b0e18df6f990624ce`, blob `0b91971750fc35f36cea896966a7a67ab683c07d`.
 DEV03_SCHEDULER: `6aae1ca247588191a1f744408d51217d`; now disabled after terminal Q01 blocker.
+CORRECTED_PROMPT_READBACK: Control reported the one-time exact-field/full-B-path mechanical prompt correction and remote read-back at `2026-09-19T06:47:18Z`, without restarting the blocked role or changing cadence.
 BRANCH: `build/wp09-01-dsa-foundation-001`.
 BASE: accepted WP03 `b7445b57ae6db866cf4d75dc88e0626d4ff6c3e9`, tree `c033cb98b07afd0691a1e9984f2b2ddcc1876bf1`.
 SAVED_QUALIFICATION_COMMIT: `aad029d0f4c2e3c0bc1e73f8b8bccbc79a0a63e3`, tree `8611573a1059a2b20cd5bb3f5e600fbbbc0eb25b`.
@@ -91,8 +94,8 @@ QUALIFICATION_SCRIPT: `meta-orchestrator/control-plane-v0/tests/conformance/wp09
 
 Two materially different bounded runtime checks were actually executed. They found no usable PostgreSQL client/server binaries or container engine, no local PostgreSQL socket/listener on the bounded ports, no `psycopg`/`psycopg2`/`asyncpg` driver, and no installed PostgreSQL package/distribution candidate. A system `libpq` shared library does not satisfy the runtime requirement. Q1 is PARTIAL/BLOCKED; Q2-Q6 are `NOT_EXECUTED`; Q7 is partial for the safe probe only.
 
-This is not `QUALIFICATION_READY_FOR_ASSESSMENT`, not independent `QUALIFIED`, and not product implementation. Repeating the same probes is prohibited no-progress work. HQ-QA-01 is not routed because the required PostgreSQL exercise does not exist to reproduce.
-NEXT_DSA_TRANSITION: existing HQ-CONTROL-01 must diagnose the runtime/capability boundary. A materially changed, explicitly authorized safe isolated PostgreSQL environment plus usable client/driver path, or a specifically scoped remediation decision, is required before Registrar may reactivate qualification. Q02 is not automatically opened.
+This is not `QUALIFICATION_READY_FOR_ASSESSMENT`, not independent `QUALIFIED`, and not product implementation. Repeating the same probes is prohibited no-progress work. The configuration correction is explicitly not `RUNTIME_FIXED`. HQ-QA-01 is not routed because the required PostgreSQL exercise does not exist to reproduce.
+NEXT_DSA_TRANSITION: existing HQ-CONTROL-01 identifies a safe already-authorized isolated PostgreSQL environment usable by executor and independent QA. If the remedy requires installation, a new provider connection, workflow/privilege change or cost beyond current authority, Control must record the exact proposed isolated remedy/boundary first. Only an actual material runtime remedy plus Registrar explicit recheck and exact assignment/prompt read-back may resume qualification. Q02 is not automatically opened.
 
 ### Architecture-strengthening gate
 #20 `ARCHITECTURE FREEZE v1` remains under separate canonical Freeze Control.
@@ -103,7 +106,7 @@ This Registrar does not write Freeze state or declare Freeze PASS.
 SCHEDULER_TASK_ID: `6aac1f2261a48191805ee42fa01ec632`.
 STATUS: `ACTIVE_REGISTRAR / MULTI_LANE_COORDINATION`.
 AUTHORITY: sole routine current dispatch/assignment/execution/public-HQ-state and worker-lifecycle writer; no implementation, product QA, Reviewer verdict, Control acceptance, merge/deploy or Freeze-state authority.
-NEXT_STEP: continue V0 R05 intake; for DSA, await Control diagnosis or a materially changed safe PostgreSQL runtime authority and do not restart Q01 unchanged.
+NEXT_STEP: continue V0 R05 intake. For DSA, do not restart Q01 unchanged; await Control's safe-runtime/remedy result or a materially changed authorized runtime, then perform exact-field/full-path assignment/prompt preflight before any recheck activation.
 
 ### HQ-DEVELOPER-01
 SCHEDULER_TASK_ID: `6aac9020d68c8191af4cee8bd53e374b`.
@@ -135,7 +138,7 @@ EXECUTION_STATUS: `EXECUTED / BLOCKED_RUNTIME / STOPPED`; no product implementat
 ### HQ-CONTROL-01
 ROLE: bounded supervisor/final package judge and task-contract authority within delegated scope; Registrar owns routine lifecycle/state transitions.
 WP04: no acceptance until exact candidate independently passes QA and Reviewer then receives Control acceptance.
-DSA: runtime/capability diagnosis is required before any qualification reactivation; qualification/implementation acceptance remains separate and evidence-bound.
+DSA: current action is safe-runtime/remedy diagnosis under the scoped correction; qualification/implementation acceptance remains separate and evidence-bound.
 
 ## Legacy local policy
 Preserve old chats/history; old NIGHTJET execution schedules remain disabled and receive no new work. No reactivation/repurposing without explicit current owner/control authority. Verify no overlapping active writer before shared-state transfer.
@@ -174,4 +177,4 @@ CLAB is PUBLIC. Private source/logs/diagnostics/report contents, credentials, cu
 Verify capabilities separately in each scheduled context. Missing evidence is `UNKNOWN/PENDING`, not PASS.
 
 ## Completion boundary
-WP04 is not PASS, merged, deployed or complete. R01-R04 remain immutable independent-QA REJECT evidence; R05 remains assigned for development under the bounded R05-R07 completion authority and has no persisted candidate/checkpoint/evidence at the latest Registrar intake. WP09-01 is separately `BLOCKED_RUNTIME` at Q01 with capability still UNVERIFIED; it is not qualified or accepted implementation and cannot advance to product R01 without a materially changed authorized PostgreSQL runtime path, independent qualification, and Registrar activation. Network-backed `GitHubApiSource` remains `NOT_TESTED`. No production, product-main merge, live DSA/scheduler cutover, legacy/remote activation, Architecture Freeze PASS or full-system `MISSION_COMPLETE` is declared.
+WP04 is not PASS, merged, deployed or complete. R01-R04 remain immutable independent-QA REJECT evidence; R05 remains assigned for development under the bounded R05-R07 completion authority and has no persisted candidate/checkpoint/evidence at the latest Registrar intake. WP09-01 is separately `BLOCKED_RUNTIME` at Q01 with capability still UNVERIFIED; the scoped routing correction is configuration-only and not runtime recovery. WP09-01 is not qualified or accepted implementation and cannot advance to product R01 without an actual authorized PostgreSQL runtime + client/driver + independent verification path, independent qualification, and Registrar activation. Network-backed `GitHubApiSource` remains `NOT_TESTED`. No production, product-main merge, live DSA/scheduler cutover, legacy/remote activation, Architecture Freeze PASS or full-system `MISSION_COMPLETE` is declared.

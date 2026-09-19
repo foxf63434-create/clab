@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_R05_REVIEW_ROUTING_WITH_DSA_RUNTIME_BLOCKED
+STATUS: HQ_WP04_R05_REVIEW_ENABLED_WITH_DSA_RUNTIME_BLOCKED
 LAST_CONTROL_AUDIT: 2026-09-19
 SOURCE_OF_TRUTH: GitHub state + actual scheduler observations + exact execution evidence
 CURRENT_AUTHORITIES: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-PREFLIGHT-PREVENTION-20260919-01`; scoped `HQ-CONTROL-ROUTING-CORRECTION-20260919-01`; `HQ-CONTROL-LONG-PACKETS-20260919-01`; historical R04 recovery authority remains history only.
@@ -26,7 +26,7 @@ CURRENT_PHASE: `REVIEW`.
 CURRENT_ROUND: `R05`.
 TASK_ID: `HQ-REVIEWER-WP04-API-R05`.
 ACTIVE_OWNER: `HQ-REVIEWER-01`.
-RUN_STATUS: `REVIEWER_ROUTING_IN_PROGRESS`.
+RUN_STATUS: `REVIEWER_ENABLED_AWAITING_EXECUTION`.
 BUILD_BRANCH: `build/wp04-status-evidence-api-001`.
 R04_INPUT: `5d92dd1455a1090546a6295adf394f96b0fb2881` / tree `397b6b920e915c7d1cff82d73996a3de51f359d4`.
 PINNED_R05_CANDIDATE: `2a1b39fef0778e786bac79b1cd51c54118269783` / tree `a73d7cecc935f1f49af145aa1f8ba5f22832c880`.
@@ -36,12 +36,13 @@ QA_RESULT: `READY_FOR_REVIEW` on the same immutable candidate. Exact-byte materi
 QA_EVIDENCE: `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/EVIDENCE/HQ-WP04-R05-QA.md`, blob `02982ff273ff6df9e1cfff10822060b515e79954`; QA tests blob `d03864c160c8c2bd76b50ee3da082405982e5068`.
 PRIOR_QA_HISTORY: earlier same-task execution `BLOCKED / REQUIRED_EXACT_BYTE_EXECUTION_ENVIRONMENT_UNAVAILABLE`, independent product tests `0`, blob `838d1648ac909d9f06d3636de1c5dc2e4ec7b913`; preserved as immutable history.
 QA_SCHEDULER: existing HQ-QA-01 worker is `DISABLED_AFTER_TERMINAL_HANDOFF`.
-REVIEWER_ASSIGNMENT: existing HQ-REVIEWER-01 is assigned `HQ-REVIEWER-WP04-API-R05`; scheduler prompt/read-back/enable are pending completion of routing in this invocation. `ASSIGNED` is not `EXECUTED`.
+REVIEWER_ASSIGNMENT: existing HQ-REVIEWER-01 is assigned `HQ-REVIEWER-WP04-API-R05`; its source-bound prompt was read back and existing schedule `6aac30a8f27c819198aea8a734aeaf5a` is `ENABLED / EXECUTION_NOT_YET_PROVEN`. `ENABLED` is not `EXECUTED`.
+REPORTING_ROLLOUT: Reviewer section-7 reporter addendum was applied at this legitimate activation boundary with configuration read-back; worker ACK is not yet proven. QA executed under its prior updated prompt; no separate explicit reporting-contract ACK is invented.
 CONTROL_ACCEPTANCE: `NOT_REACHED`.
 
 Reviewer must independently judge the exact candidate and QA evidence, including C01-C12+canonical identity/association coverage, exact-byte identity proof, unchanged historical suites, candidate/upstream regressions, read-only/source-immutability/secret-suppression/fail-closed/determinism guarantees and the complete imported local pipeline evidence. Reviewer PASS means only `READY_FOR_CONTROL_REVIEW`, not acceptance. Product network `GitHubApiSource` remains `NOT_TESTED`.
 
-NEXT_WP04_TRANSITION: complete existing Reviewer prompt/read-back/enable without changing the candidate, then await actual role-owned Reviewer evidence. Same-candidate Reviewer PASS routes existing HQ-CONTROL-01. Reviewer REJECT/BLOCKED preserves exact evidence and follows only finite delivery rules. R06 is not open.
+NEXT_WP04_TRANSITION: wait for actual role-owned `meta-orchestrator/missions/digital-organization-infrastructure-v1/BUILD-ITERATION-1/EVIDENCE/HQ-WP04-R05-REVIEWER.md`. Same-candidate Reviewer PASS routes existing HQ-CONTROL-01. Reviewer REJECT/BLOCKED preserves exact evidence and follows only finite delivery rules. R06 is not open.
 
 ## Separate WP09-01 DSA lane
 PUBLIC_LANE_ISSUE: #24.
@@ -56,7 +57,7 @@ Q1 remains partial/blocked; Q2-Q6 not executed; Q7 partial probe only. A later C
 NEXT_DSA_TRANSITION: Control identifies a safe already-authorized isolated PostgreSQL runtime plus client/driver and independent verifier path, then Registrar performs an explicit Q01 recheck. Independent QUALIFIED is required before DSA implementation.
 
 ## Problem cycle
-Private native `[NIGHTJET-PROBLEM]` Issues in `foxf63434-create/meta-sales-system` are the sole problem register and are not task authority. #44 PostgreSQL runtime remains `WAITING`. #45 existing WP04 identity defect remains `VERIFYING` and advances to independent Reviewer because QA is READY_FOR_REVIEW. #46 reporting rollout remains `IN_PROGRESS`; QA was executed under its updated prompt and Reviewer has reached a legitimate safe boundary for section-7 rollout. #47 exact-byte QA runtime is eligible for `RESOLVED` only after Registrar completes operational reconciliation of this successful exact-byte QA handoff.
+Private native `[NIGHTJET-PROBLEM]` Issues in `foxf63434-create/meta-sales-system` are the sole problem register and are not task authority. #44 PostgreSQL runtime remains `WAITING`. #45 existing WP04 identity defect remains `VERIFYING` and is now in independent Reviewer verification after terminal same-candidate QA READY_FOR_REVIEW. #46 reporting rollout remains `IN_PROGRESS`; Reviewer has received the section-7 addendum at a legitimate safe boundary. #47 exact-byte QA runtime is eligible for `RESOLVED`: actual QA successfully materialized/verifed the exact required bytes, executed the mandatory independent matrix, and the operational state has been reconciled to Reviewer routing.
 
 ## Downstream gates
 Post-WP04 #21/#22/#23 and later V0 work remain gated behind exact WP04 independent QA + Reviewer PASS + final Control acceptance. Freeze state remains owned only by canonical Freeze Control. WP09-02 waits accepted WP09-01; later DSA DAG dependencies remain unchanged.

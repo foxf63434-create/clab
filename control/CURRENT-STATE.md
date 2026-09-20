@@ -1,35 +1,36 @@
 # CLAB CURRENT STATE
 
-STATUS: FIXED_WORK_ACTIVE_INTEGRATION_R02_REPAIR_WP06_REVIEWER_ROUTED_DEV02_CAPACITY_BLOCKED_ISOLATED_PROOF_ENABLED_PARKED_POOL_PHASE0_FREEZE_OPEN_HARD_BLOCKED
+STATUS: FIXED_WORK_ACTIVE_INTEGRATION_R02_REPAIR_WP06_R02_REPAIR_DEV02_ENABLED_NO_OUTPUT_ISOLATED_PROOF_PARKED_POOL_PHASE0_FREEZE_OPEN_HARD_BLOCKED
 LAST_CONTROL_AUDIT: 2026-09-20
 SOURCE_OF_TRUTH: current private GitHub evidence + exact assignments + actual branch/schedule read-back + current Chat Slot Pool V2 / isolated-proof state
 PUBLIC_WORK_ISSUES: #18 HQ coordination; #21 EvidenceRef; #22 GitHubApiSource proof; #23 fixture-only WP05; #24 WP09-01 DSA qualification.
 
 ## Material current routing
-- **Integration baseline:** R01 independent QA is terminal `REJECT / ALTERNATE_UNPINNED_MANIFEST_TRUST_BYPASS` on immutable candidate `15d6421381a1ad6831c1060b3b8a981c8ad204e2`. The defect is an alternate caller-supplied manifest being accepted as a trust root; unit/compile success did not overcome the adversarial failure. Registrar returned the existing lineage to original HQ-DEVELOPER-01 as bounded R02 repair, preserved the finite R01-R03 budget and enabled the same existing Dev01 schedule. R02 execution/candidate is not yet proven.
-- **WP06 boundary R01:** Dev04 author work is terminal `READY_FOR_INDEPENDENT_REVIEW` on immutable candidate `8974cdf09f765d71ba272e78e34e70133c5d2e8d` / tree `81fa37ec7d4e8b1574277ca34017673b8e36555c`. Registrar created `review/wp06-boundary-r01` from the exact author-evidence commit and routed the candidate to existing HQ-REVIEWER-01. Reviewer schedule is enabled; Reviewer execution/PASS is not yet proven. G8 remains Freeze-owned and pending.
-- **One Window browser R01:** existing Dev02 assignment/prompt/branch remain unchanged. Schedule enablement is still `ROUTING_INCOMPLETE / WAKE_PENDING_CAPACITY` after the observed account active-task-capacity limit. No unrelated project task was paused and no replacement schedule was created.
+- **Integration baseline:** R01 independent QA remains terminal `REJECT / ALTERNATE_UNPINNED_MANIFEST_TRUST_BYPASS` on immutable candidate `15d6421381a1ad6831c1060b3b8a981c8ad204e2`. Original HQ-DEVELOPER-01 owns bounded R02 on the same authorized lineage; its branch was last observed still at R01 author-evidence head `5c6295155cb92fed413510acad52f9933e4a5429`, so no R02 candidate is claimed yet. Existing Dev01 schedule is enabled.
+- **WP06 boundary:** R01 independent Reviewer is terminal `REJECT / CHANGE_REQUIRED` at Reviewer evidence commit `14d1e35363d7c51927fdd9c09e640531321aa4c4`. The exact bounded defect is incomplete explicit authoritative-source traceability for material R01-R40 rows; accepted ownership/security semantics were not rejected. Registrar returned a NEW R02 assignment to original HQ-DEVELOPER-04, preserved the same branch/base/six-file scope and finite correction history, disabled the terminal R01 Reviewer schedule and enabled the existing Dev04 schedule for R02. No R02 candidate or Reviewer PASS exists yet. Control is not eligible from R01 and G8 remains Freeze-owned.
+- **One Window browser R01:** existing Dev02 assignment/prompt/branch remain unchanged. The same existing schedule is now enabled, but branch `build/one-window-browser-r01` was last observed still on base `72fa5edd559090dd3d11fa56e083e8b7f22fd6ad`; therefore no browser candidate/output is claimed.
 - **Runtime capability resolution:** Control diagnosis remains terminal. PostgreSQL/DSA and product GitHub REST remain external prerequisites; no timer retry is authorized.
 
 ## Isolated fixed-first operating proof
-The scoped `E2E-20260920-01` proof has been bootstrapped under the current closed-loop directive without changing broad pool policy. Parent assignment and atomic proof `STATE.json` are published/read back; activation is `2026-09-20T09:47:40Z`, deadline `2026-09-21T09:47:40Z`. Current code stage is `AUTHOR_R01_READY`, claim epoch `0`, claim `null`; continuation is `NOT_PUBLISHED`; P01-P11 are all `NOT_TESTED`; chat-isolation assurance remains `UNKNOWN`.
+The scoped `E2E-20260920-01` proof remains bootstrapped but parked. Activation is `2026-09-20T09:47:40Z`, deadline `2026-09-21T09:47:40Z`; code stage remains `AUTHOR_R01_READY`, code claim epoch `0`, claim `null`; continuation is `NOT_PUBLISHED`; P01-P11 remain `NOT_TESTED`; chat-isolation assurance is `UNKNOWN`.
 
-The proof is fixed-first and currently parked with **no claim and no result**. Existing Dev04/QA/Reviewer identities may participate only at their own safe primary-work boundaries. No extra reserve slot was activated for this proof.
+Participant A (HQ-DEVELOPER-04) now has executable primary WP06 R02 and therefore cannot claim proof CODE. Participant B is reserved for the next eligible fixed QA handoff. Participant C cannot act because proof CODE is not `REVIEW_READY`. No proof result is claimed.
 
-## Chat Slot Pool V2 global overlay
-Global state remains `PHASE_0_POLICY_SHADOW`: `claims_enabled=false`, `product_code_tasks_enabled=false`, `active_pool_slots=0`; broad Phase 1 is not opened. Reserve projection is now only `SLOT-02`, `SLOT-03`, `SLOT-04`. `SLOT-01` is explicitly excluded because that identity is the protected existing HQ-DEEP-DIVE-01 / unfinished OpenHands qualification binding. Its wake is pending legitimate capacity; it is not a free generic pool slot.
-
-## Accepted/frozen baseline preserved
-WP04 remains `CONTROL_ACCEPTED / WP04_R06_BOUNDED_PASS`; EvidenceRef R02 remains `CONTROL_ACCEPTED / EVIDENCE_REF_R02_BOUNDED_PASS`; fixture-only WP05 remains `CONTROL_ACCEPTED / WP05_R01_FIXTURE_BOUNDED_PASS`; Mission12A remains planning-only Control accepted. None of those accepted parents were rewritten by current routing.
+## Chat Slot Pool V2 global overlay / restored research binding
+Global state remains `PHASE_0_POLICY_SHADOW`: `claims_enabled=false`, `product_code_tasks_enabled=false`, `active_pool_slots=0`; broad Phase 1 is not opened. Reserve projection remains only `SLOT-02`, `SLOT-03`, `SLOT-04`; `SLOT-01` is protected for original HQ-DEEP-DIVE-01 / OpenHands qualification. The restored Deep Dive schedule is enabled, but its current checkpoint still says `ASSIGNED_NOT_YET_EXECUTED`, so no completed deep research is claimed.
 
 ## Freeze/runtime blockers
-Authoritative Freeze-owned state remains `OPEN / HARD_BLOCKED`: G5 product GitHub network proof is still `NOT_TESTED / NETWORK_PATH_NOT_PROVEN`; G8 remains `PENDING / WP06_BOUNDARY_NOT_PINNED` until exact Reviewer -> Control -> Freeze-owner evidence exists. PostgreSQL/DSA still needs a real authorized PostgreSQL server/client/driver plus independent verifier path; product GitHub REST still needs a QA-eligible runtime executing the product path itself.
+Authoritative Freeze-owned state remains `OPEN / HARD_BLOCKED`: G5 product GitHub network proof is still `NOT_TESTED / NETWORK_PATH_NOT_PROVEN`; G8 remains `PENDING / WP06_BOUNDARY_NOT_PINNED`. PostgreSQL/DSA still requires real authorized PostgreSQL server/client/driver plus independent verifier path; product GitHub REST still requires a QA-eligible runtime executing the product path itself.
+
+## Work-window discipline
+Substantial packets remain complete coherent outcomes, not per-file hourly fragments. Roughly 30-45 minutes is only an initial planning/check hypothesis where useful, never a minimum runtime or proof of compute. Ready immutable handoffs control successor activation. Active compute/tokens/cost remain UNKNOWN without direct telemetry.
 
 ## Next legal actors
-1. Existing HQ-DEVELOPER-01 executes bounded integration R02; NEW immutable candidate must return to independent HQ-QA-01 before Reviewer.
-2. Existing HQ-REVIEWER-01 executes exact WP06 contract review; only Reviewer PASS opens applicable Control, and only later Freeze owner may decide G8.
-3. When legitimate account capacity naturally appears and no higher-priority QA/Reviewer/Control handoff needs it, enable the existing Dev02 schedule and resume its unchanged browser task.
-4. The isolated proof may advance one eligible stage only at fixed-work safe boundaries; its current READY/no-claim state is not execution evidence.
+1. Existing HQ-DEVELOPER-01 continues bounded integration R02; NEW immutable candidate must return to independent HQ-QA-01 before Reviewer.
+2. Existing HQ-DEVELOPER-04 executes bounded WP06 R02; NEW immutable candidate must return to independent HQ-REVIEWER-01; only real Reviewer PASS may open applicable Control, and only later Freeze owner may decide G8.
+3. Existing HQ-DEVELOPER-02 may execute the unchanged browser assignment; QA opens only after an immutable candidate.
+4. Existing HQ-DEEP-DIVE-01 may execute its restored OpenHands qualification; no duplicate research owner is authorized.
+5. The isolated proof remains parked while fixed work has priority and its current state is not eligible for QA/Reviewer stages.
 
 No product-main merge/deploy/production, third-party executable package/model experiment, provider/account connection, raw-secret/privilege change, spending, customer effect, live DSA cutover, broad pool activation or Registrar Freeze-state write occurred.
 

@@ -1,6 +1,6 @@
 # CLAB CURRENT STATE
 
-STATUS: HQ_WP04_ACCEPTED_EVIDENCE_REF_R02_CONTROL_ACCEPTED_G4_PASS_WP05_CONTROL_ACCEPTED_GITHUB_SOURCE_RUNTIME_WAITING_FREEZE_OPEN_HARD_BLOCKED_DSA_RUNTIME_BLOCKED
+STATUS: HQ_WP04_ACCEPTED_EVIDENCE_REF_R02_CONTROL_ACCEPTED_G4_PASS_WP05_CONTROL_ACCEPTED_GITHUB_SOURCE_RUNTIME_WAITING_FREEZE_OPEN_HARD_BLOCKED_DSA_RUNTIME_BLOCKED_M12A_REVIEWER_ENABLED
 LAST_CONTROL_AUDIT: 2026-09-20
 SOURCE_OF_TRUTH: GitHub current private evidence + exact role assignments + actual worker configuration/read-back
 CURRENT_AUTHORITIES: `HQ-CONTROL-DELIVERY-RESUMPTION-20260919-01`; `HQ-CONTROL-PARALLEL-LANES-20260919-01`; `HQ-CONTROL-PREFLIGHT-PREVENTION-20260919-01`; task-sizing policy v2; final `CONTROL-WP04-R06-ACCEPTANCE-20260919-01`; `meta-orchestrator/architecture-freeze-v1/POST-WP04-PARALLELIZATION.md`.
@@ -48,8 +48,14 @@ Freeze result remains `NOT_READY / G5_HARD_BLOCKED_G8_PENDING`; `READY_FOR_TECHN
 ## WP09-01 DSA
 Still `BLOCKED_RUNTIME / CAPABILITY_STATE: UNVERIFIED`. Saved probe `aad029d0f4c2e3c0bc1e73f8b8bccbc79a0a63e3` / tree `8611573a1059a2b20cd5bb3f5e600fbbbc0eb25b`. No recovered PostgreSQL/client runtime or independent qualification is proven. Private #44 remains WAITING for the exact runtime/independent-verifier recheck trigger. This is not a global post-WP04 hold.
 
-## Mission 12
-Architecture remains `CONTROL_ACCEPTED / ACCEPTED_FOR_IMPLEMENTATION_PLANNING`; planning is complete but implementation remains dependency-gated. Immutable reviewed candidate `bdb5a06787f2cf2f4ce7015690965f1cb8334d0d` / tree `212baf6d282161afe71bb9047d7484ea94c99813`. M12-WP01 waits for accepted WP09-01 plus authorized PostgreSQL/client runtime and independent verifier path; WP09-02 additionally gates production async integration.
+## Mission 12 / Mission 12A
+Accepted Mission12 architecture remains `CONTROL_ACCEPTED / ACCEPTED_FOR_IMPLEMENTATION_PLANNING`; implementation remains dependency-gated. Immutable parent candidate `bdb5a06787f2cf2f4ce7015690965f1cb8334d0d` / tree `212baf6d282161afe71bb9047d7484ea94c99813`; Control acceptance `be0e93a72b31f3fe34865502c136665b963bfcce`; frozen parent architecture `34e570ef9f4cb5eb1044d15c13bc2033f3cf06ea`. Existing M12 implementation gates remain unchanged.
+
+Existing authorized Mission12A connector/repository-capability architecture work has reached an immutable author handoff. HQ-DEVELOPER-05 is terminal/stopped. The substantive Mission12A candidate is `f3eb7f368ef7217ed27faa5d5745553a845f2ab2` / tree `b1447ac8c6ca79caff305d98e0f63b254902d498` / subtree `c716b38384a6c76a7c7946d8bd357a972c0d2eea`; the later author branch head `b77a3a5e4217b0305d5f212a301dcb3e3a1dec84` is reporting-only.
+
+Registrar created `review/mission12a-connector-ecosystem-r01` directly from the immutable candidate. Read-back before execution shows the review branch still at exact candidate/tree. Reviewer assignment `meta-orchestrator/missions/nightjet-research-wave-03-06/12A-CONNECTOR-ECOSYSTEM-REPOSITORY-CAPABILITY/ASSIGNMENTS/HQ-REVIEWER-01.md` was published at Registrar commit `a40f18ef27f5bb0a649938e1fd6c501ae3a1c098`, blob `e795f07a3c908bc41b88ba8e5a281d43b52da135`, task `HQ-REVIEWER-M12A-CONNECTOR-ARCH-R01`.
+
+Existing HQ-REVIEWER-01 is source-bound and enabled on the existing hourly cadence. `ENABLED != EXECUTED`: there is no independent Mission12A Reviewer verdict yet. The author claims 31 candidate files confined to Mission12A, 43/43 outputs, 120 use-case classes, 80 acceptance scenarios and 60 Red Team scenarios; these remain unaccepted author claims until independent review. Reviewer PASS, if earned, means only `READY_FOR_CONTROL_RECONCILIATION`, not implementation authority, accepted Mission12 planning, merge/deploy or production.
 
 ## Problem-cycle projection
 Private `[NIGHTJET-PROBLEM]` issues are the sole problem register and are not task authority.
@@ -60,10 +66,10 @@ Private `[NIGHTJET-PROBLEM]` issues are the sole problem register and are not ta
 - #49 GITHUB-SOURCE outbound runtime: WAITING / `CONTROL_DIAGNOSIS_COMPLETE / WAITING_RUNTIME_CAPABILITY`; no unchanged retry.
 - #51 EVIDENCE-REF aliases: RESOLVED/CLOSED after exact R02 QA, Reviewer, bounded Control acceptance and Freeze G4 reconciliation.
 
-Direct private issue collection was processed through page 2 with page 2 empty; pull requests were excluded. No new `PROBLEM_REPORT_PENDING` was found in consumed role evidence.
+Direct private issue collection was processed through page 2 with page 2 empty; pull requests were excluded. No new problem card or `PROBLEM_REPORT_PENDING` requiring Registrar action was found before this Mission12A handoff routing.
 
 ## Current guardrails
-HQ-DEVELOPER-01 is terminal/frozen after the R02 author handoff. HQ-QA-01 is terminal/disabled/free. HQ-REVIEWER-01 is terminal/disabled/free. HQ-CONTROL-01 is terminal/disabled/free after exact R02 bounded acceptance. Freeze Control remains standing reconciliation only and is the sole Freeze-state writer. Dev03 remains terminal runtime-blocked until its exact recheck trigger.
+HQ-DEVELOPER-01 is terminal/frozen after the R02 author handoff. HQ-QA-01 is terminal/disabled/free. HQ-REVIEWER-01 is now assigned/enabled exclusively for Mission12A independent review. HQ-CONTROL-01 is terminal/disabled/free after exact R02 bounded acceptance. Freeze Control remains standing reconciliation only and is the sole Freeze-state writer. Dev03 remains terminal runtime-blocked until its exact recheck trigger. Dev05 remains terminal/stopped after the Mission12A immutable author handoff and was not reactivated.
 
 No production/deploy, product-main merge, live DSA/scheduler cutover, secret/privilege change, paid infrastructure or customer-effect action is authorized or claimed.
 
